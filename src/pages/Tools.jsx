@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ToolCard from '../components/ToolCard'
-import { tools } from '../data/tools'
+import { tools } from '../data/tools.js'
 
 export default function Tools() {
   const [selectedCategory, setSelectedCategory] = useState('Tous')
