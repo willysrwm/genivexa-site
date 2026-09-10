@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import ToolCard from '../components/ToolCard'
-import { tools } from '../data/tools'
+import { tools } from '../data/tools.js'
 
 export default function Home() {
   const featuredTools = tools.slice(0, 6)
