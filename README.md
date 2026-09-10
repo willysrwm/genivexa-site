@@ -43,4 +43,4 @@ Ouvrez `src/data/tools.js` et remplacez les `affiliateLink` par vos vrais liens.
 
 ## 📝 Ajouter un article de blog
 
-Modifiez `src/pages/Blog.jsx` et ajoutez vos articles dans le tableau `articles`.
+Modifiez `src/pages/Blog.jsx` et ajoutez vos articles dans le tableau `articles` .
