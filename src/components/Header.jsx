@@ -7,12 +7,14 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">G</span>
-            </div>
-            <span className="text-xl font-bold text-gray-900">GeniVexa</span>
+        <div className="flex justify-between items-center h-20">
+          <Link to="/" className="flex items-center space-x-3">
+            <img
+              src="https://res.cloudinary.com/roq3tbxs/image/upload/v1789479426/Logo2.png"
+              alt="GeniVexa Logo"
+              className="h-12 w-auto"
+            />
+            <span className="text-2xl font-bold text-gray-900">GeniVexa</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
