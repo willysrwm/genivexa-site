@@ -6,10 +6,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">G</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-4">
+              <img
+                src="https://res.cloudinary.com/roq3tbxs/image/upload/v1789479426/Logo2.png"
+                alt="GeniVexa Logo"
+                className="h-10 w-auto bg-white rounded-lg p-1"
+              />
               <span className="text-xl font-bold">GeniVexa</span>
             </div>
             <p className="text-gray-400 max-w-md">
