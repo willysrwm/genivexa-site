@@ -6,14 +6,20 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
+            {/* LOGO + TEXTE DÉGRADÉ (comme le header) */}
+            <Link to="/" className="flex items-center space-x-2 mb-4 group">
               <img
-                src="https://res.cloudinary.com/roq3tbxs/image/upload/v1789479426/Logo2.png"
-                alt="GeniVexa Logo"
-                className="h-10 w-auto bg-white rounded-lg p-1"
+                src="https://res.cloudinary.com/roq3tbxs/image/upload/v1789481875/Logo-Icon.png"
+                alt="GeniVexa"
+                className="h-12 w-auto bg-white rounded-lg p-1"
               />
-              <span className="text-xl font-bold">GeniVexa</span>
-            </div>
+              <span
+                className="text-2xl font-black tracking-tight bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent"
+                style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '-0.02em' }}
+              >
+                GeniVexa
+              </span>
+            </Link>
             <p className="text-gray-400 max-w-md">
               Découvrez les meilleurs outils IA et solutions d'automatisation pour booster votre productivité et développer votre business.
             </p>
