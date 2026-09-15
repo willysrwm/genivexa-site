@@ -168,9 +168,10 @@
 }
 
 .article-card .article-footer .read-more {
-  color: #10b981;
-  font-weight: 700;
-  font-size: 0.95rem;
+  color: #10b981 !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  display: inline-block !important;
 }
 
 .article-card:hover .article-footer .read-more {
