@@ -3,12 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    @apply bg-gray-50 text-gray-900 font-sans antialiased;
-  }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-gray-50 text-gray-900 font-sans antialiased; }
 }
 
 @layer components {
@@ -58,9 +54,7 @@
   margin-bottom: 0.75rem;
 }
 
-.article-content p {
-  margin-bottom: 1.25rem;
-}
+.article-content p { margin-bottom: 1.25rem; }
 
 .article-content ul,
 .article-content ol {
@@ -68,9 +62,7 @@
   padding-left: 1.5rem;
 }
 
-.article-content li {
-  margin-bottom: 0.5rem;
-}
+.article-content li { margin-bottom: 0.5rem; }
 
 .article-content strong {
   color: #065f46;
@@ -83,9 +75,7 @@
   font-weight: 600;
 }
 
-.article-content a:hover {
-  color: #047857;
-}
+.article-content a:hover { color: #047857; }
 
 .article-content blockquote {
   border-left: 4px solid #10b981;
@@ -117,9 +107,7 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-.article-content tr:hover {
-  background: #f0fdf4;
-}
+.article-content tr:hover { background: #f0fdf4; }
 
 .article-content code {
   background: #f3f4f6;
@@ -135,7 +123,7 @@
   margin: 2.5rem 0;
 }
 
-/* Carte d'article sur l'accueil - FOND SOMBRE */
+/* Carte d'article - FOND SOMBRE */
 .article-card {
   background: #1f2937;
   border-radius: 1rem;
@@ -154,56 +142,38 @@
   background: #111827;
 }
 
-/* Titre : en VERT */
 .article-card h3 {
-  color: #10b981 !important;
+  color: #10b981;
   font-weight: 700;
 }
 
-.article-card:hover h3 {
-  color: #34d399 !important;
-}
+.article-card:hover h3 { color: #34d399; }
 
-/* Texte de description : en BLANC */
-.article-card p {
-  color: #f3f4f6 !important;
-}
+.article-card p { color: #f3f4f6; }
 
-/* Métadonnées (catégorie, temps, date) : en blanc cassé */
-.article-card .article-meta {
-  color: #d1d5db !important;
-}
+.article-card .article-meta { color: #d1d5db; }
 
-.article-card span {
-  color: inherit;
-}
-
-/* Badge catégorie : fond vert, texte blanc */
 .article-card .category-badge {
-  background: #10b981 !important;
-  color: white !important;
+  background: #10b981;
+  color: white;
 }
 
-/* Pied de carte (date + Lire) */
 .article-card .article-footer {
-  color: #d1d5db !important;
-  border-top: 1px solid #4b5563 !important;
+  color: #d1d5db;
+  border-top: 1px solid #4b5563;
 }
 
-/* Date : en gris clair */
 .article-card .article-footer span:first-child {
-  color: #d1d5db !important;
+  color: #d1d5db;
 }
 
-/* "Lire →" : en VERT, gras, bien visible */
 .article-card .article-footer .read-more {
-  color: #10b981 !important;
-  font-weight: 700 !important;
-  font-size: 0.95rem !important;
+  color: #10b981;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
-/* "Lire →" au survol : vert plus clair */
 .article-card:hover .article-footer .read-more {
-  color: #34d399 !important;
+  color: #34d399;
   text-decoration: underline;
 }
