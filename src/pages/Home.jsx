@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import ToolCard from '../components/ToolCard'
-import { tools } from '../data/tools.js'
+import { tools } from '../data/tools'
+import { articles } from '../data/articles'
 
 export default function Home() {
   const featuredTools = tools.slice(0, 6)
   const categories = [...new Set(tools.map(tool => tool.category))]
+  const latestArticles = articles.slice(0, 3)
 
   return (
     <div>
@@ -36,7 +38,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl font-bold text-gray-900">
-              Outils populaires
+              🔥 Outils populaires
             </h2>
             <Link to="/outils" className="text-primary-600 hover:text-primary-700 font-semibold">
               Voir tout →
@@ -50,7 +52,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* 📚 SECTION BLOG - NOUVEAU */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center mb-8">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                📚 Derniers articles du blog
+              </h2>
+              <p className="text-gray-600">
+                Guides pratiques et comparatifs pour maîtriser les outils IA
+              </p>
+            </div>
+            <Link to="/blog" className="text-primary-600 hover:text-primary-700 font-semibold hidden md:block">
+              Tous les articles →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {latestArticles.map((article) => (
+              <Link
+                key={article.id}
+                to={`/blog/${article.slug}`}
+                className="article-card group"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xs font-bold text-primary-700 bg-primary-50 px-3 py-1 rounded-full">
+                    {article.category}
+                  </span>
+                  <span className="text-xs text-gray-500">⏱️ {article.readTime}</span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors line-clamp-2">
+                  {article.title}
+                </h3>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                  {article.excerpt}
+                </p>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <span className="text-xs text-gray-500">📅 {article.date}</span>
+                  <span className="text-primary-600 font-semibold text-sm">
+                    Lire →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-8 md:hidden">
+            <Link to="/blog" className="text-primary-600 hover:text-primary-700 font-semibold">
+              Voir tous les articles →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Newsletter */}
       <section className="py-16 bg-primary-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
