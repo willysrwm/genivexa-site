@@ -186,10 +186,24 @@
 
 /* Pied de carte (date + Lire) */
 .article-card .article-footer {
-  color: #9ca3af !important;
-  border-top: 1px solid #374151 !important;
+  color: #d1d5db !important;
+  border-top: 1px solid #4b5563 !important;
 }
 
+/* Date : en gris clair */
+.article-card .article-footer span:first-child {
+  color: #d1d5db !important;
+}
+
+/* "Lire →" : en VERT, gras, bien visible */
 .article-card .article-footer .read-more {
   color: #10b981 !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+}
+
+/* "Lire →" au survol : vert plus clair */
+.article-card:hover .article-footer .read-more {
+  color: #34d399 !important;
+  text-decoration: underline;
 }
