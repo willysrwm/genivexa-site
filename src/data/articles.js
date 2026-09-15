@@ -430,7 +430,6 @@ Vous avez des questions ? Laissez un commentaire ci-dessous, je réponds personn
 *Article mis à jour le 15 septembre 2026.*
 *Certains liens de cet article sont des liens d'affiliation. Si vous souscrivez via ces liens, je peux percevoir une commission sans frais supplémentaires pour vous.*
     `
-  }
   },
   {
     id: 3,
