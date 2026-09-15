@@ -10,11 +10,11 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* LOGO + TEXTE */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <img
-              src="https://res.cloudinary.com/roq3tbxs/image/upload/v1789481875/Logo-Icon.png"
-              alt="GeniVexa"
-              className="h-14 md:h-16 w-auto transition-transform group-hover:scale-105"
-            />
+           <img
+  src="https://res.cloudinary.com/roq3tbxs/image/upload/v1789481875/Logo-Icon.png"
+  alt="GeniVexa"
+  className="h-16 md:h-20 w-auto transition-transform group-hover:scale-110"
+/>
             <span
               className="text-3xl md:text-4xl font-black tracking-tight bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 bg-clip-text text-transparent"
               style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '-0.02em' }}
