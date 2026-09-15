@@ -7,7 +7,7 @@ import { articles } from '../data/articles'
 export default function Home() {
   const featuredTools = tools.slice(0, 6)
   const categories = [...new Set(tools.map(tool => tool.category))]
-  const latestArticles = articles.slice(0, 3)
+  const latestArticles = [...articles].reverse().slice(0, 3)
 
   return (
     <div>
