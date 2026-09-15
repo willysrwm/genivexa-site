@@ -52,7 +52,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 📚 SECTION BLOG - NOUVEAU */}
+      {/* Section Blog */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-8">
@@ -70,29 +70,63 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-           {latestArticles.map((article) => (
-  <Link
-    key={article.id}
-    to={`/blog/${article.slug}`}
-    className="article-card group"
-  >
-    <div className="flex items-center gap-3 mb-4">
-      <span className="category-badge text-xs font-bold px-3 py-1 rounded-full">
-        {article.category}
-      </span>
-      <span className="article-meta text-xs">⏱️ {article.readTime}</span>
+            {latestArticles.map((article) => (
+              <Link
+                key={article.id}
+                to={`/blog/${article.slug}`}
+                className="article-card group"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="category-badge text-xs font-bold px-3 py-1 rounded-full">
+                    {article.category}
+                  </span>
+                  <span className="article-meta text-xs">⏱️ {article.readTime}</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 transition-colors line-clamp-2">
+                  {article.title}
+                </h3>
+                <p className="text-sm mb-4 line-clamp-3">
+                  {article.excerpt}
+                </p>
+                <div className="article-footer flex items-center justify-between pt-4 border-t">
+                  <span className="text-xs">📅 {article.date}</span>
+                  <span className="read-more font-semibold text-sm">
+                    Lire →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-8 md:hidden">
+            <Link to="/blog" className="text-primary-600 hover:text-primary-700 font-semibold">
+              Voir tous les articles →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Newsletter */}
+      <section className="py-16 bg-primary-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Prêt à transformer votre productivité ?
+          </h2>
+          <p className="text-primary-100 mb-8 text-lg">
+            Recevez nos meilleurs conseils et découvertes d'outils IA directement dans votre boîte mail.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Votre email"
+              className="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+            />
+            <button type="submit" className="bg-white text-primary-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+              S'inscrire
+            </button>
+          </form>
+        </div>
+      </section>
     </div>
-    <h3 className="text-lg font-bold mb-3 transition-colors line-clamp-2">
-      {article.title}
-    </h3>
-    <p className="text-sm mb-4 line-clamp-3">
-      {article.excerpt}
-    </p>
-    <div className="article-footer flex items-center justify-between pt-4 border-t">
-      <span className="text-xs">📅 {article.date}</span>
-      <span className="read-more font-semibold text-sm">
-        Lire →
-      </span>
-    </div>
-  </Link>
-))}
+  )
+}
