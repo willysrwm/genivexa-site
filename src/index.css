@@ -135,20 +135,61 @@
   margin: 2.5rem 0;
 }
 
-/* Carte d'article sur l'accueil */
+/* Carte d'article sur l'accueil - FOND SOMBRE */
 .article-card {
-  background: white;
+  background: #1f2937;
   border-radius: 1rem;
   padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   display: block;
   text-decoration: none;
-  border: 1px solid transparent;
+  border: 1px solid #374151;
 }
 
 .article-card:hover {
-  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
   transform: translateY(-4px);
   border-color: #10b981;
+  background: #111827;
+}
+
+/* Titre : en VERT */
+.article-card h3 {
+  color: #10b981 !important;
+  font-weight: 700;
+}
+
+.article-card:hover h3 {
+  color: #34d399 !important;
+}
+
+/* Texte de description : en BLANC */
+.article-card p {
+  color: #f3f4f6 !important;
+}
+
+/* Métadonnées (catégorie, temps, date) : en blanc cassé */
+.article-card .article-meta {
+  color: #d1d5db !important;
+}
+
+.article-card span {
+  color: inherit;
+}
+
+/* Badge catégorie : fond vert, texte blanc */
+.article-card .category-badge {
+  background: #10b981 !important;
+  color: white !important;
+}
+
+/* Pied de carte (date + Lire) */
+.article-card .article-footer {
+  color: #9ca3af !important;
+  border-top: 1px solid #374151 !important;
+}
+
+.article-card .article-footer .read-more {
+  color: #10b981 !important;
 }
