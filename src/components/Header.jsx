@@ -8,15 +8,22 @@ export default function Header() {
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center space-x-3">
+          {/* LOGO + TEXTE */}
+          <Link to="/" className="flex items-center space-x-2 group">
             <img
-              src="https://res.cloudinary.com/roq3tbxs/image/upload/v1789479426/Logo2.png"
-              alt="GeniVexa Logo"
-              className="h-12 w-auto"
+              src="https://res.cloudinary.com/roq3tbxs/image/upload/v1789481875/Logo-Icon.png"
+              alt="GeniVexa"
+              className="h-14 md:h-16 w-auto transition-transform group-hover:scale-105"
             />
-            <span className="text-2xl font-bold text-gray-900">GeniVexa</span>
+            <span
+              className="text-3xl md:text-4xl font-black tracking-tight bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-500 bg-clip-text text-transparent"
+              style={{ fontFamily: 'Poppins, sans-serif', letterSpacing: '-0.02em' }}
+            >
+              GeniVexa
+            </span>
           </Link>
 
+          {/* MENU DESKTOP */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-gray-600 hover:text-primary-600 font-medium transition-colors">
               Accueil
@@ -32,6 +39,7 @@ export default function Header() {
             </Link>
           </div>
 
+          {/* BOUTON MOBILE */}
           <button
             className="md:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
@@ -47,6 +55,7 @@ export default function Header() {
           </button>
         </div>
 
+        {/* MENU MOBILE */}
         {isOpen && (
           <div className="md:hidden py-4 border-t">
             <div className="flex flex-col space-y-4">
