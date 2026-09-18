@@ -178,3 +178,42 @@
   color: #34d399;
   text-decoration: underline;
 }
+/* Couleurs personnalisées pour les cartes */
+
+/* Blog : vert flashi clair */
+.card-blog {
+  background: #d1fae5 !important;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: block;
+  text-decoration: none;
+  border: 1px solid #a7f3d0;
+}
+
+.card-blog:hover {
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);
+  transform: translateY(-4px);
+  border-color: #10b981;
+  background: #ecfdf5 !important;
+}
+
+/* Outils : gris clair */
+.card-tools {
+  background: #f3f4f6 !important;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: block;
+  text-decoration: none;
+  border: 1px solid #e5e7eb;
+}
+
+.card-tools:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  border-color: #10b981;
+  background: #ffffff !important;
+}
