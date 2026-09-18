@@ -19,7 +19,7 @@ export default function Blog() {
             <Link
               key={article.id}
               to={`/blog/${article.slug}`}
-              className="card group cursor-pointer block"
+              className="card-blog group cursor-pointer block"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-xs font-semibold text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
