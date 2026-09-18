@@ -1,6 +1,6 @@
 export default function ToolCard({ tool }) {
   return (
-    <div className="card group">
+   <div className="card-tools group">
       <div className="flex items-start justify-between mb-4">
         <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
           <span className="text-2xl">{tool.icon}</span>
