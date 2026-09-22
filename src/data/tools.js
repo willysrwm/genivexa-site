@@ -382,7 +382,7 @@ export const tools = [
     description: "Automatisation visuelle puissante. Alternative à Zapier plus flexible.",
     features: ["Sans code", "1000+ intégrations", "Scénarios visuels"],
     pricing: "Gratuit / $9/mois",
-    affiliateLink: "https://make.com/?ref=genivexa"
+    affiliateLink: "https://www.make.com/en/register?pc=genivexa"
   },
   {
     id: 38,
