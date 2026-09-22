@@ -8,7 +8,7 @@ export const tools = [
     description: "L'assistant IA de GitHub qui complète ton code en temps réel. Gagne 55% de vitesse sur tes projets.",
     features: ["Autocomplétion IA", "Support 20+ langages", "Intégration VS Code"],
     pricing: "À partir de $10/mois",
-    affiliateLink: "https://github.com/features/copilot?ref=genivexa"
+   affiliateLink: "https://www.make.com/en/register?pc=genivexa"
   },
   {
     id: 2,
