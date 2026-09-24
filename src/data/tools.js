@@ -529,5 +529,15 @@ export const tools = [
     features: ["Fiches auto", "Quiz IA", "Mode examen"],
     pricing: "Gratuit / $8/mois",
     affiliateLink: "https://quizlet.com/?ref=genivexa"
+    },
+  {
+    id: 52,
+    name: "Systeme.io",
+    icon: "⚙️",
+    category: "Marketing & Vente",
+    description: "Plateforme tout-en-un pour créer funnels, emails, formations et automatisations. L'alternative gratuite à ClickFunnels.",
+    features: ["Funnels illimités", "Email marketing", "Plan gratuit à vie"],
+    pricing: "Gratuit / À partir de $27/mois",
+    affiliateLink: "https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694"
   }
-]
+];
