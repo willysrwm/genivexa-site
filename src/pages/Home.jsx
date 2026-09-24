@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import ToolCard from '../components/ToolCard'
 import { tools } from '../data/tools'
 import { articles } from '../data/articles'
+import FeaturedTools from '../components/FeaturedTools'
 
 export default function Home() {
   const featuredTools = tools.slice(0, 6)
@@ -11,7 +12,13 @@ export default function Home() {
 
   return (
     <div>
-      <Hero />
+            <Hero />
+      
+      {/* SECTION SÉLECTION PREMIUM */}
+      <FeaturedTools />
+      
+      {/* Categories */}
+      <section className="py-16 bg-white">
 
       {/* Categories */}
       <section className="py-16 bg-white">
