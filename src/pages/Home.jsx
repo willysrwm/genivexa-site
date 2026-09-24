@@ -18,12 +18,9 @@ export default function Home() {
       <FeaturedTools />
       
       {/* Categories */}
-      <section className="py-16 bg-white">
-
-      {/* Categories */}
-      <section className="py-16 bg-white">
+         <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+        <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
             Explorez par catégorie
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
