@@ -310,6 +310,16 @@ export const tools = [
     pricing: "Gratuit / $10/mois",
     affiliateLink: "https://notion.so/?ref=genivexa"
   },
+    {
+    id: 51,
+    name: "Notta AI",
+    icon: "📝",
+    category: "Productivité",
+    description: "Transcrivez automatiquement vos réunions, interviews et podcasts en texte. L'IA qui révolutionne la prise de notes.",
+    features: ["Transcription IA", "Résumés auto", "99% précision"],
+    pricing: "Gratuit / À partir de $8.99/mois",
+    affiliateLink: "https://ypetp.com/g/7gbdp8tygu678588d05ff50bb56640/"
+  },
 
   // ========== 🔍 SEO & CONTENU ==========
   {
