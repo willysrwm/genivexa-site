@@ -188,6 +188,7 @@ Entre **5 minutes** (simple) et **1 heure** (complexe).
 Oui. Make est conforme RGPD et utilise le chiffrement SSL.
 
 ---
+
 ## 📚 Articles complémentaires
 
 - ⚙️ **[Make vs Zapier : le comparatif complet](https://genivexa.vercel.app/blog/make-vs-zapier)**
@@ -420,9 +421,6 @@ Oui, grâce à son OCR intégré (dans les versions payantes). Speechify propose
 
 ---
 
-
----
-
 ## 📚 Articles complémentaires
 
 - 📖 **[Top 10 des outils IA gratuits en 2026](https://genivexa.vercel.app/blog/top-10-outils-ia-gratuits)**
@@ -621,9 +619,6 @@ Oui, les deux supportent le **français**.
 
 ### Lequel pour rédiger des articles de blog ?
 **Jasper AI** est clairement le meilleur grâce à son intégration Surfer SEO.
-
----
-
 
 ---
 
@@ -930,9 +925,6 @@ De nombreux outils prétendent être gratuits mais :
 
 ---
 
-
----
-
 ## 📚 Pour aller plus loin
 
 Découvrez nos guides détaillés :
@@ -1208,9 +1200,6 @@ Ne mettez jamais de données clients sensibles dans des outils IA non conformes 
 
 ---
 
-
----
-
 ## 📚 Articles complémentaires
 
 - 📖 **[Top 10 des outils IA gratuits](https://genivexa.vercel.app/blog/top-10-outils-ia-gratuits)**
@@ -1479,9 +1468,6 @@ Absolument. Les deux IA excellent en français, avec des traductions et rédacti
 ### Puis-je utiliser les deux gratuitement ?
 
 Oui ! Les versions gratuites sont suffisantes pour un usage personnel. Alternez selon vos besoins.
-
----
-
 
 ---
 
@@ -1782,9 +1768,6 @@ Testez votre logo **sur écran de téléphone** avant de valider.
 
 ---
 
-
----
-
 ## 📚 Articles complémentaires
 
 - 📖 **[Top 10 des outils IA gratuits](https://genivexa.vercel.app/blog/top-10-outils-ia-gratuits)**
@@ -2078,9 +2061,6 @@ Exportez vos échanges importants. Rien n'est sauvegardé automatiquement en clo
 
 ---
 
-
----
-
 ## 📚 Articles complémentaires
 
 - 📖 **[Top 10 des outils IA gratuits](https://genivexa.vercel.app/blog/top-10-outils-ia-gratuits)**
@@ -2356,9 +2336,6 @@ Pour du **marketing** avec texte : DALL-E. Pour du **design créatif** : Midjour
 ### Puis-je utiliser ces outils en français ?
 
 Absolument. Les deux comprennent le français, même si les prompts en anglais donnent souvent de meilleurs résultats.
-
----
-
 
 ---
 
@@ -2661,9 +2638,6 @@ Créer un service ne suffit pas. Il faut **le faire connaître**.
 
 ### 5. Baisser ses prix
 Ne bradez pas vos services. L'IA vous fait **gagner du temps**, pas **réduire la valeur**.
-
----
-
 
 ---
 
