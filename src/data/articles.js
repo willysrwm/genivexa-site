@@ -188,10 +188,6 @@ Entre **5 minutes** (simple) et **1 heure** (complexe).
 Oui. Make est conforme RGPD et utilise le chiffrement SSL.
 
 ---
-
-
----
-
 ## 📚 Articles complémentaires
 
 - ⚙️ **[Make vs Zapier : le comparatif complet](https://genivexa.vercel.app/blog/make-vs-zapier)**
