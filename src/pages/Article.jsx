@@ -3,34 +3,73 @@ import { articles } from '../data/articles'
 
 // Helper : traite le Markdown inline (gras + liens)
 function renderInline(text, keyPrefix = '') {
-  const parts = text.split(/(\[.*?\]\(.*?\))/g)
-  return parts.flatMap((part, i) => {
-    const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/)
-    if (linkMatch) {
-      return (
+  const tokens = []
+  let lastIndex = 0
+  let i = 0
+
+  // Regex globale qui détecte dans cet ordre :
+  // 1. **lien**  →  capturé par groupes 1, 2, 3
+  // 2. lien      →  capturé par groupes 4, 5
+  // 3. **gras**  →  capturé par groupe 6
+  const regex = /(\*\*\[(.+?)\]\((.+?)\)\*\*|\[(.+?)\]\((.+?)\)|\*\*(.+?)\*\*)/g
+
+  let match
+  while ((match = regex.exec(text)) !== null) {
+    // Texte normal avant le match
+    if (match.index > lastIndex) {
+      tokens.push(
+        <span key={`t-${keyPrefix}-${i++}`}>
+          {text.slice(lastIndex, match.index)}
+        </span>
+      )
+    }
+
+    if (match[2] !== undefined && match[3] !== undefined) {
+      // Cas 1 : **lien**
+      tokens.push(
         <a
-          key={`${keyPrefix}-link-${i}`}
-          href={linkMatch[2]}
+          key={`al-${keyPrefix}-${i++}`}
+          href={match[3]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary-600 underline font-bold hover:text-primary-700"
+        >
+          {match[2]}
+        </a>
+      )
+    } else if (match[4] !== undefined && match[5] !== undefined) {
+      // Cas 2 : lien normal
+      tokens.push(
+        <a
+          key={`a-${keyPrefix}-${i++}`}
+          href={match[5]}
           target="_blank"
           rel="noopener noreferrer"
           className="text-primary-600 underline font-semibold hover:text-primary-700"
         >
-          {linkMatch[1]}
+          {match[4]}
         </a>
       )
+    } else if (match[6] !== undefined) {
+      // Cas 3 : **gras**
+      tokens.push(
+        <strong key={`b-${keyPrefix}-${i++}`} className="font-bold text-gray-900">
+          {match[6]}
+        </strong>
+      )
     }
-    const boldParts = part.split(/(\*\*.*?\*\*)/g)
-    return boldParts.map((bp, j) => {
-      if (bp.startsWith('**') && bp.endsWith('**')) {
-        return (
-          <strong key={`${keyPrefix}-b-${i}-${j}`} className="font-bold text-gray-900">
-            {bp.replace(/\*\*/g, '')}
-          </strong>
-        )
-      }
-      return <span key={`${keyPrefix}-s-${i}-${j}`}>{bp}</span>
-    })
-  })
+
+    lastIndex = match.index + match[0].length
+  }
+
+  // Texte restant après le dernier match
+  if (lastIndex < text.length) {
+    tokens.push(
+      <span key={`t-${keyPrefix}-${i++}`}>{text.slice(lastIndex)}</span>
+    )
+  }
+
+  return tokens
 }
 
 export default function Article() {
