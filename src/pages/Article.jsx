@@ -1,6 +1,38 @@
 import { useParams, Link } from 'react-router-dom'
 import { articles } from '../data/articles'
 
+// Helper : traite le Markdown inline (gras + liens)
+function renderInline(text, keyPrefix = '') {
+  const parts = text.split(/(\[.*?\]\(.*?\))/g)
+  return parts.flatMap((part, i) => {
+    const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/)
+    if (linkMatch) {
+      return (
+        <a
+          key={`${keyPrefix}-link-${i}`}
+          href={linkMatch[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary-600 underline font-semibold hover:text-primary-700"
+        >
+          {linkMatch[1]}
+        </a>
+      )
+    }
+    const boldParts = part.split(/(\*\*.*?\*\*)/g)
+    return boldParts.map((bp, j) => {
+      if (bp.startsWith('**') && bp.endsWith('**')) {
+        return (
+          <strong key={`${keyPrefix}-b-${i}-${j}`} className="font-bold text-gray-900">
+            {bp.replace(/\*\*/g, '')}
+          </strong>
+        )
+      }
+      return <span key={`${keyPrefix}-s-${i}-${j}`}>{bp}</span>
+    })
+  })
+}
+
 export default function Article() {
   const { slug } = useParams()
   const article = articles.find(a => a.slug === slug)
@@ -22,7 +54,6 @@ export default function Article() {
         ← Retour au blog
       </Link>
 
-      {/* Header de l'article */}
       <header className="mb-12 pb-8 border-b border-gray-200">
         <div className="flex flex-wrap items-center gap-3 mb-6">
           <span className="text-xs font-bold text-white bg-primary-500 px-4 py-1.5 rounded-full uppercase tracking-wide">
@@ -39,24 +70,27 @@ export default function Article() {
         </p>
       </header>
 
-      {/* Contenu de l'article avec styles enrichis */}
       <div className="article-content">
         {article.content.split('\n').map((line, index) => {
-          // Titres H1
+          // H1
           if (line.startsWith('# ')) {
             return <h1 key={index}>{line.replace('# ', '')}</h1>
           }
-          // Titres H2
+          // H2
           if (line.startsWith('## ')) {
             return <h2 key={index}>{line.replace('## ', '')}</h2>
           }
-          // Titres H3
+          // H3
           if (line.startsWith('### ')) {
             return <h3 key={index}>{line.replace('### ', '')}</h3>
           }
-          // Listes à puces
+          // Listes à puces — AVEC Markdown inline
           if (line.startsWith('- ')) {
-            return <li key={index} className="ml-6">{line.replace('- ', '')}</li>
+            return (
+              <li key={index} className="ml-6 mb-2">
+                {renderInline(line.replace('- ', ''), String(index))}
+              </li>
+            )
           }
           // Citations
           if (line.startsWith('> ')) {
@@ -66,13 +100,16 @@ export default function Article() {
           if (line.trim() === '---') {
             return <hr key={index} />
           }
-          // Tableaux (lignes avec |)
+          // Tableaux
           if (line.startsWith('|')) {
             const cells = line.split('|').filter(c => c.trim() !== '')
             if (cells.every(c => c.match(/^[-: ]+$/))) {
-              return null // Ligne de séparation
+              return null
             }
-            const isHeader = line.includes('Critère') || line.includes('**')
+            const isHeader =
+              line.includes('Critère') ||
+              line.includes('---|') ||
+              (cells[0] && cells[0].includes('**'))
             return (
               <tr key={index}>
                 {cells.map((cell, i) => {
@@ -88,34 +125,15 @@ export default function Article() {
           if (line.trim() === '') {
             return <br key={index} />
           }
-          // Paragraphes normaux avec liens markdown
-          const parts = line.split(/(\[.*?\]\(.*?\))/g)
+          // Paragraphes — AVEC Markdown inline
           return (
             <p key={index}>
-              {parts.map((part, i) => {
-                const match = part.match(/\[(.*?)\]\((.*?)\)/)
-                if (match) {
-                  return (
-                    <a key={i} href={match[2]} target="_blank" rel="noopener noreferrer">
-                      {match[1]}
-                    </a>
-                  )
-                }
-                // Gras **texte**
-                const boldParts = part.split(/(\*\*.*?\*\*)/g)
-                return boldParts.map((bp, j) => {
-                  if (bp.startsWith('**') && bp.endsWith('**')) {
-                    return <strong key={`${i}-${j}`}>{bp.replace(/\*\*/g, '')}</strong>
-                  }
-                  return <span key={`${i}-${j}`}>{bp}</span>
-                })
-              })}
+              {renderInline(line, String(index))}
             </p>
           )
         })}
       </div>
 
-      {/* CTA final */}
       <footer className="mt-16 pt-8 border-t-2 border-primary-100">
         <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -125,7 +143,7 @@ export default function Article() {
             Découvrez Make, l'outil d'automatisation le plus puissant du marché. Plan gratuit inclus, sans carte bancaire.
           </p>
           <a
-            href="https://www.make.com/"
+            href="https://www.make.com/en/register?pc=genivexa"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-colors shadow-lg hover:shadow-xl"
