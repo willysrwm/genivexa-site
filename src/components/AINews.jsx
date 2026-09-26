@@ -1,145 +1,43 @@
-import { useEffect, useState } from 'react'
-
-export default function AINews() {
-  const [news, setNews] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('/ai-news.json')
-      .then(res => res.json())
-      .then(data => {
-        if (data.articles && data.articles.length > 0) {
-          setNews(data.articles)
-        }
-        setLoading(false)
-      })
-      .catch(err => {
-        console.error('Erreur:', err)
-        setLoading(false)
-      })
-  }, [])
-
-  if (loading) {
-    return (
-      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <span className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold px-4 py-2 rounded-full text-sm mb-4 animate-pulse">
-            📰 ACTUALITÉS IA
-          </span>
-          <h2 className="text-3xl font-bold text-gray-900">Chargement...</h2>
-        </div>
-      </section>
-    )
-  }
-
-  if (news.length === 0) return null
-
-  return (
-    <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 border-y-2 border-blue-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* En-tête */}
-        <div className="text-center mb-8">
-          <span className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold px-4 py-2 rounded-full text-sm mb-4 animate-pulse">
-            📰 ACTUALITÉS IA — MIS À JOUR
-          </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-            Ce qui se passe <span className="text-blue-600">dans l'IA</span>
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Les dernières actualités IA sélectionnées pour vous.
-          </p>
-        </div>
-
-        {/* ⚡ BANDE INFO FLASH DÉFILANTE */}
-        <div className="relative mb-10 rounded-xl overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 shadow-lg">
-          {/* Icône fixe à gauche */}
-          <div className="absolute left-0 top-0 bottom-0 z-10 flex items-center px-4 bg-gradient-to-r from-yellow-400 to-orange-500">
-            <span className="text-2xl mr-2 animate-bounce">⚡</span>
-            <span className="text-white font-black text-sm uppercase tracking-wider whitespace-nowrap">
-              Info Flash
-            </span>
-          </div>
-
-          {/* Zone défilante */}
-          <div className="py-3 pl-44 overflow-hidden">
-            <div className="flex animate-scroll whitespace-nowrap">
-              {/* Contenu répété 2 fois pour boucle infinie */}
-              {[...news, ...news].map((item, index) => (
-                <a
-                  key={index}
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center mx-6 text-white hover:text-yellow-200 transition-colors group"
-                >
-                  <span className="text-yellow-300 mr-2">🔥</span>
-                  <span className="font-semibold text-sm">{item.title}</span>
-                  <span className="mx-3 text-yellow-200">•</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Grille des 4 cartes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {news.map((item, index) => {
-            const date = new Date(item.date)
-            const dayAgo = Math.floor((Date.now() - date.getTime()) / (1000 * 60 * 60 * 24))
-            const timeAgo = dayAgo === 0 ? "Aujourd'hui" : dayAgo === 1 ? "Hier" : `Il y a ${dayAgo} jours`
-
-            return (
-              <a
-                key={index}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-blue-400 flex flex-col"
-              >
-                <div className="h-2 bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                <div className="p-5 flex flex-col flex-grow">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">
-                      🔥 IA NEWS
-                    </span>
-                    <span className="text-xs text-gray-400">{timeAgo}</span>
-                  </div>
-                  <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 text-xs mb-4 flex-grow">
-                    {item.description}
-                  </p>
-                  <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                    <span className="text-xs text-gray-400">{item.source}</span>
-                    <span className="text-blue-600 font-semibold text-xs">
-                      Lire →
-                    </span>
-                  </div>
-                </div>
-              </a>
-            )
-          })}
-        </div>
-      </div>
-
-      {/* ⚡ ANIMATION CSS POUR LE DÉFILEMENT */}
-      <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
-        }
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-    </section>
-  )
+{
+  "updated": "2026-09-26",
+  "flash": [
+    "ChatGPT dépasse 1 milliard d'utilisateurs actifs",
+    "Google investit 50 milliards $ dans l'IA en 2026",
+    "Midjourney V7 disponible en accès anticipé",
+    "L'IA génère 30% du contenu web en 2026",
+    "OpenAI valorisée à 500 milliards $",
+    "Les emplois IA ont augmenté de 200% en France",
+    "Nouveau record : 1 million de GPU installés",
+    "Claude 4 bat tous les records de raisonnement"
+  ],
+  "articles": [
+    {
+      "title": "OpenAI lance Sora 2 : la génération vidéo passe un cap historique",
+      "description": "Le nouveau modèle vidéo d'OpenAI génère des scènes de 60 secondes ultra-réalistes avec synchronisation audio parfaite. Disponible dès maintenant pour les abonnés ChatGPT Plus et Pro.",
+      "link": "https://openai.com/sora",
+      "date": "2026-09-26",
+      "source": "OpenAI"
+    },
+    {
+      "title": "Mistral AI dévoile Mistral Large 3, le meilleur modèle européen",
+      "description": "La startup française franchit un cap avec Mistral Large 3 : performances comparables à GPT-5, mais hébergé en Europe. Un atout majeur pour les entreprises soucieuses du RGPD.",
+      "link": "https://mistral.ai/news",
+      "date": "2026-09-25",
+      "source": "Mistral AI"
+    },
+    {
+      "title": "Les agents IA autonomes débarquent dans les entreprises françaises",
+      "description": "Selon une étude Capgemini, 62% des grandes entreprises françaises prévoient de déployer des agents IA autonomes d'ici fin 2026. Le marché de l'automatisation explose.",
+      "link": "https://www.capgemini.com/insights",
+      "date": "2026-09-24",
+      "source": "Capgemini Research"
+    },
+    {
+      "title": "Hugging Face dépasse les 2 millions de modèles open source",
+      "description": "La plateforme communautaire franchit un cap symbolique : plus de 2 millions de modèles IA disponibles gratuitement. L'écosystème open source confirme sa domination sur l'IA fermée.",
+      "link": "https://huggingface.co/blog",
+      "date": "2026-09-23",
+      "source": "Hugging Face"
+    }
+  ]
 }
