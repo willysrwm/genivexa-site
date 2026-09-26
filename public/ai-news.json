@@ -1,0 +1,33 @@
+{
+  "updated": "2026-09-26",
+  "articles": [
+    {
+      "title": "OpenAI dévoile de nouvelles capacités de raisonnement pour GPT-5",
+      "description": "Le nouveau modèle d'OpenAI améliore considérablement les performances en mathématiques, code et raisonnement logique. Disponible pour tous les utilisateurs Plus.",
+      "link": "https://openai.com/blog",
+      "date": "2026-09-25",
+      "source": "OpenAI Blog"
+    },
+    {
+      "title": "Anthropic annonce Claude 4 avec un contexte de 1 million de tokens",
+      "description": "Anthropic repousse les limites de l'IA conversationnelle avec Claude 4. Analyse de livres entiers, code complexe et documents juridiques en un seul prompt.",
+      "link": "https://www.anthropic.com/news",
+      "date": "2026-09-24",
+      "source": "Anthropic"
+    },
+    {
+      "title": "Google intègre Gemini dans tous les produits Workspace",
+      "description": "Gmail, Docs, Sheets et Meet reçoivent des assistants IA avancés. Les entreprises peuvent automatiser leur productivité avec Gemini.",
+      "link": "https://blog.google/technology/ai/",
+      "date": "2026-09-23",
+      "source": "Google AI Blog"
+    },
+    {
+      "title": "Les entreprises adoptent massivement l'IA générative en 2026",
+      "description": "Selon une étude récente, 78% des entreprises utilisent au moins un outil d'IA générative. Le marché mondial atteint 200 milliards de dollars.",
+      "link": "https://techcrunch.com/category/artificial-intelligence/",
+      "date": "2026-09-22",
+      "source": "TechCrunch"
+    }
+  ]
+}
