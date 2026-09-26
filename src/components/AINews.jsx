@@ -37,7 +37,8 @@ export default function AINews() {
   return (
     <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 border-y-2 border-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
+        {/* En-tête */}
+        <div className="text-center mb-8">
           <span className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold px-4 py-2 rounded-full text-sm mb-4 animate-pulse">
             📰 ACTUALITÉS IA — MIS À JOUR
           </span>
@@ -49,6 +50,38 @@ export default function AINews() {
           </p>
         </div>
 
+        {/* ⚡ BANDE INFO FLASH DÉFILANTE */}
+        <div className="relative mb-10 rounded-xl overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 shadow-lg">
+          {/* Icône fixe à gauche */}
+          <div className="absolute left-0 top-0 bottom-0 z-10 flex items-center px-4 bg-gradient-to-r from-yellow-400 to-orange-500">
+            <span className="text-2xl mr-2 animate-bounce">⚡</span>
+            <span className="text-white font-black text-sm uppercase tracking-wider whitespace-nowrap">
+              Info Flash
+            </span>
+          </div>
+
+          {/* Zone défilante */}
+          <div className="py-3 pl-44 overflow-hidden">
+            <div className="flex animate-scroll whitespace-nowrap">
+              {/* Contenu répété 2 fois pour boucle infinie */}
+              {[...news, ...news].map((item, index) => (
+                <a
+                  key={index}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center mx-6 text-white hover:text-yellow-200 transition-colors group"
+                >
+                  <span className="text-yellow-300 mr-2">🔥</span>
+                  <span className="font-semibold text-sm">{item.title}</span>
+                  <span className="mx-3 text-yellow-200">•</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Grille des 4 cartes */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {news.map((item, index) => {
             const date = new Date(item.date)
@@ -89,6 +122,24 @@ export default function AINews() {
           })}
         </div>
       </div>
+
+      {/* ⚡ ANIMATION CSS POUR LE DÉFILEMENT */}
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   )
 }
