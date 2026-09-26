@@ -4,6 +4,7 @@ import ToolCard from '../components/ToolCard'
 import { tools } from '../data/tools'
 import { articles } from '../data/articles'
 import FeaturedTools from '../components/FeaturedTools'
+import AINews from '../components/AINews'
 
 export default function Home() {
   const featuredTools = tools.slice(0, 6)
@@ -13,7 +14,9 @@ export default function Home() {
   return (
     <div>
       <Hero />
-
+      
+      {/* SECTION ACTUALITÉS IA */}
+      <AINews />
       {/* SECTION SÉLECTION PREMIUM */}
       <FeaturedTools />
 
