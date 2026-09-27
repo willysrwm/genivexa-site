@@ -1,14 +1,38 @@
 {
-  "updated": "2026-09-26",
+  "updated": "2026-09-27",
   "flash": [
-    "ChatGPT dépasse 1 milliard d'utilisateurs actifs",
-    "Google investit 50 milliards $ dans l'IA en 2026",
-    "Midjourney V7 disponible en accès anticipé",
-    "L'IA génère 30% du contenu web en 2026",
-    "OpenAI valorisée à 500 milliards $",
-    "Les emplois IA ont augmenté de 200% en France",
-    "Nouveau record : 1 million de GPU installés",
-    "Claude 4 bat tous les records de raisonnement"
+    {
+      "title": "ChatGPT dépasse 1 milliard d'utilisateurs",
+      "description": "OpenAI confirme ce cap historique avec 40% d'usage quotidien actif."
+    },
+    {
+      "title": "Google investit 50 milliards $ dans l'IA",
+      "description": "Le géant mise tout sur Gemini pour dominer le marché d'ici 2030."
+    },
+    {
+      "title": "Midjourney V7 disponible en accès anticipé",
+      "description": "Qualité photoréaliste x3 et génération 4K native pour les abonnés Pro."
+    },
+    {
+      "title": "L'IA génère 30% du contenu web en 2026",
+      "description": "Une étude révèle que près d'un tiers des articles sont désormais assistés."
+    },
+    {
+      "title": "OpenAI valorisée à 500 milliards $",
+      "description": "La startup devient la plus valorisée du secteur, devant Anthropic."
+    },
+    {
+      "title": "Emplois IA en hausse de 200% en France",
+      "description": "Le marché français recrute massivement des experts en prompt engineering."
+    },
+    {
+      "title": "Record de 1 million de GPU installés",
+      "description": "La demande en calcul IA explose pour répondre aux besoins des LLM."
+    },
+    {
+      "title": "Claude 4 bat les records de raisonnement",
+      "description": "Anthropic surpasse GPT-5 sur les benchmarks de logique et de code."
+    }
   ],
   "articles": [
     {
