@@ -116,25 +116,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Newsletter */}
-      <section className="py-16 bg-primary-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Prêt à transformer votre productivité ?
+            {/* CTA Newsletter — Brevo */}
+      <section className="py-16 bg-gradient-to-br from-primary-600 to-emerald-500">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-block bg-white/20 backdrop-blur text-white font-bold px-4 py-2 rounded-full text-sm mb-4">
+            📩 NEWSLETTER GRATUITE
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Recevez votre Guide IA Gratuit
           </h2>
-          <p className="text-primary-100 mb-8 text-lg">
-            Recevez nos meilleurs conseils et découvertes d'outils IA directement dans votre boîte mail.
+          <p className="text-primary-50 mb-8 text-lg max-w-xl mx-auto">
+            Inscrivez-vous pour recevoir notre guide <strong>"10 Prompts ChatGPT pour Freelances"</strong> + nos meilleures astuces IA chaque semaine.
           </p>
-          <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Votre email"
-              className="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
-            />
-            <button type="submit" className="bg-white text-primary-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors">
-              S'inscrire
-            </button>
-          </form>
+          
+          {/* Formulaire Brevo intégré */}
+          <div className="bg-white rounded-2xl p-4 shadow-2xl max-w-xl mx-auto overflow-hidden">
+            <iframe
+              width="540"
+              height="305"
+              src="https://0fbf6b70.sibforms.com/v2/serve/MUIFAIuEbssuonv2HY8YTwdSnA2JkPwGvwWFVcCTkeuS7u50lOIRTPppef9KIyjcTJJuWkWraRu__LZFbr3SNIvNnj5J3ctef1VEl_Pig9rnaciXGfBg5LbQbLZkkLW_gCn7fobtOCFVvsfLISiS9sIzsOnHdGoOJS3wOtp1DQN84ScbtEohhAYB9BJ7rWy1osr4NOUmEosQBY9Rew=="
+              frameBorder="0"
+              scrolling="auto"
+              allowFullScreen
+              style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%' }}
+            ></iframe>
+          </div>
+
+          <p className="text-primary-50 text-sm mt-4">
+            🔒 Vos données sont sécurisées. Désabonnement en 1 clic.
+          </p>
         </div>
       </section>
     </div>
