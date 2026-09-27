@@ -50,11 +50,11 @@ export default function AINews() {
           </p>
         </div>
 
-        {/* ⚡ BANDE INFO FLASH DÉFILANTE (mobile-friendly) */}
+        {/* ⚡ BANDE INFO FLASH — ANIMÉE + VERTICALEMENT CENTRÉE */}
         {flash.length > 0 && (
-          <div className="flex items-stretch rounded-xl overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 shadow-lg mb-10">
-            {/* Badge fixe à gauche */}
-            <div className="flex-shrink-0 flex items-center px-3 sm:px-4 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 z-10">
+          <div className="info-flash-band flex items-center rounded-xl overflow-hidden shadow-lg mb-10 min-h-[56px]">
+            {/* Badge fixe */}
+            <div className="flex-shrink-0 flex items-center px-3 sm:px-4 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 z-10 h-full">
               <span className="text-lg sm:text-2xl mr-1 sm:mr-2 animate-bounce">⚡</span>
               <span className="text-white font-black text-xs sm:text-sm uppercase tracking-wider whitespace-nowrap">
                 Info Flash
@@ -62,16 +62,17 @@ export default function AINews() {
             </div>
 
             {/* Zone défilante */}
-            <div className="flex-grow overflow-hidden py-3 min-w-0">
-              <div className="flex animate-scroll whitespace-nowrap">
+            <div className="flex-grow overflow-hidden py-3 min-w-0 flex items-center">
+              <div className="flex animate-scroll whitespace-nowrap items-center">
                 {[...flash, ...flash].map((item, index) => (
                   <span
                     key={index}
-                    className="inline-flex items-center mx-4 sm:mx-6 text-white text-xs sm:text-sm font-medium"
+                    className="inline-flex items-center mx-6 text-white text-xs sm:text-sm"
                   >
                     <span className="text-yellow-300 mr-2">🔥</span>
-                    {item}
-                    <span className="mx-3 text-yellow-200">•</span>
+                    <span className="font-bold mr-2 text-white">{item.title}</span>
+                    <span className="text-yellow-100 italic">— {item.description}</span>
+                    <span className="mx-4 text-yellow-200 text-lg">•</span>
                   </span>
                 ))}
               </div>
@@ -79,7 +80,7 @@ export default function AINews() {
           </div>
         )}
 
-        {/* Grille des 4 cartes */}
+        {/* Grille des 4 cartes — AVEC ANIMATION DE FOND */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {news.map((item, index) => {
             const date = new Date(item.date)
@@ -92,7 +93,8 @@ export default function AINews() {
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-blue-400 flex flex-col"
+                className="card-animated group rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-blue-400 flex flex-col"
+                style={{ animationDelay: `${index * 0.8}s` }}
               >
                 <div className="h-2 bg-gradient-to-r from-blue-500 to-purple-500"></div>
                 <div className="p-5 flex flex-col flex-grow">
@@ -105,11 +107,11 @@ export default function AINews() {
                   <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-gray-500 text-xs mb-4 flex-grow">
+                  <p className="text-gray-600 text-xs mb-4 flex-grow">
                     {item.description}
                   </p>
-                  <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                    <span className="text-xs text-gray-400">{item.source}</span>
+                  <div className="flex items-center justify-between pt-3 border-t border-gray-200">
+                    <span className="text-xs text-gray-500 font-medium">{item.source}</span>
                     <span className="text-blue-600 font-semibold text-xs">
                       Lire →
                     </span>
@@ -121,17 +123,42 @@ export default function AINews() {
         </div>
       </div>
 
-      {/* ⚡ ANIMATION CSS */}
+      {/* ⚡ ANIMATIONS CSS */}
       <style>{`
+        /* Défilement horizontal du flash info */
         @keyframes scroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 60s linear infinite;
         }
         .animate-scroll:hover {
           animation-play-state: paused;
+        }
+
+        /* Animation de fond de la bande Info Flash */
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .info-flash-band {
+          background: linear-gradient(90deg, #f97316, #ef4444, #ec4899, #8b5cf6, #f97316);
+          background-size: 300% 100%;
+          animation: gradientShift 12s ease infinite;
+        }
+
+        /* Animation de fond des cartes */
+        @keyframes cardColorShift {
+          0%   { background-color: #ffffff; }
+          25%  { background-color: #eff6ff; }
+          50%  { background-color: #f5f3ff; }
+          75%  { background-color: #ecfdf5; }
+          100% { background-color: #ffffff; }
+        }
+        .card-animated {
+          animation: cardColorShift 8s ease-in-out infinite;
         }
       `}</style>
     </section>
