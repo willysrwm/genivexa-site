@@ -5,6 +5,7 @@ import { tools } from '../data/tools'
 import { articles } from '../data/articles'
 import FeaturedTools from '../components/FeaturedTools'
 import AINews from '../components/AINews'
+import Gallery from '../components/Gallery'
 
 export default function Home() {
   const featuredTools = tools.slice(0, 6)
@@ -17,6 +18,8 @@ export default function Home() {
       
       {/* SECTION ACTUALITÉS IA */}
       <AINews />
+       {/* Galerie photos */}
+      <Gallery />
       {/* SECTION SÉLECTION PREMIUM */}
       <FeaturedTools />
 
