@@ -1,0 +1,35 @@
+{
+  "updated": "2026-09-27",
+  "photos": [
+    {
+      "src": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+      "title": "Automatisation IA",
+      "alt": "Business automation workflow with AI"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80",
+      "title": "Robot & IA",
+      "alt": "AI robot assistant working"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+      "title": "Équipe Tech",
+      "alt": "Team working on technology"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+      "title": "Coding & IA",
+      "alt": "Developer coding with AI tools"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "title": "Innovation",
+      "alt": "Technology innovation"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+      "title": "Data & Cloud",
+      "alt": "Data and cloud computing"
+    }
+  ]
+}
