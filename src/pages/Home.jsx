@@ -34,7 +34,7 @@ export default function Home() {
               <Link
                 key={index}
                 to="/outils"
-                className="bg-gray-100 hover:bg-primary-100 text-gray-700 hover:text-primary-700 font-medium px-6 py-3 rounded-full transition-colors"
+                className="px-6 py-3 bg-primary-50 hover:bg-primary-100 text-primary-700 font-semibold rounded-full transition-colors"
               >
                 {category}
               </Link>
@@ -43,27 +43,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Tools */}
+      {/* Derniers articles du blog */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900">
-              🔥 Outils populaires
-            </h2>
-            <Link to="/outils" className="text-primary-600 hover:text-primary-700 font-semibold">
-              Voir tout →
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredTools.map((tool) => (
-              <ToolCard key={tool.id} tool={tool} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Blog Section */}
-      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-8">
             <div>
@@ -116,7 +97,7 @@ export default function Home() {
         </div>
       </section>
 
-            {/* CTA Newsletter — Brevo */}
+      {/* CTA Newsletter — Brevo */}
       <section className="py-16 bg-gradient-to-br from-primary-600 to-emerald-500">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-white/20 backdrop-blur text-white font-bold px-4 py-2 rounded-full text-sm mb-4">
@@ -134,17 +115,13 @@ export default function Home() {
             <iframe
               width="540"
               height="305"
-              src="https://0fbf6b70.sibforms.com/v2/serve/MUIFAIuEbssuonv2HY8YTwdSnA2JkPwGvwWFVcCTkeuS7u50lOIRTPppef9KIyjcTJJuWkWraRu__LZFbr3SNIvNnj5J3ctef1VEl_Pig9rnaciXGfBg5LbQbLZkkLW_gCn7fobtOCFVvsfLISiS9sIzsOnHdGoOJS3wOtp1DQN84ScbtEohhAYB9BJ7rWy1osr4NOUmEosQBY9Rew=="
+              src="https://0fbf6b70.sibforms.com/v2/serve/MUIFAluEbssuonv2HY8YTwdSnA2JkPwGvwWFVcCTkeuS7u50lOIRTPppef9KIyjcTJJJwWkRwaRu__LZFbr3SNlVnNj5J3ctef1VEl_Pig9rnaciXGfBg5LbQbLZkkLW_gCn7fobtOCFVvsfLISiS9sIzsOnHdGoOJS3wOtp1DQN84ScbtEohhAYB9BJ7rWy1osr4NOUmEosQBY9Rew=="
               frameBorder="0"
               scrolling="auto"
               allowFullScreen
               style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%' }}
             ></iframe>
           </div>
-
-          <p className="text-primary-50 text-sm mt-4">
-            🔒 Vos données sont sécurisées. Désabonnement en 1 clic.
-          </p>
         </div>
       </section>
     </div>
