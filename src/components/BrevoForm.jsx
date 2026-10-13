@@ -1,45 +1,4 @@
-import { useEffect } from 'react'
-
 export default function BrevoForm() {
-  useEffect(() => {
-    // Injecter le CSS de Brevo dans le head
-    const link = document.createElement('link')
-    link.rel = 'stylesheet'
-    link.href = 'https://sibforms.com/forms/end-form/build/sib-styles.css'
-    document.head.appendChild(link)
-
-    // Injecter les variables de traduction Brevo
-    window.REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays'
-    window.LOCALE = 'fr'
-    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Les informations que vous avez fournies ne sont pas valides. Veuillez vérifier le format du champ et réessayer."
-    window.REQUIRED_ERROR_MESSAGE = "Vous devez renseigner ce champ. "
-    window.GENERIC_INVALID_MESSAGE = "Les informations que vous avez fournies ne sont pas valides. Veuillez vérifier le format du champ et réessayer."
-    window.INVALID_NUMBER = "Les informations que vous avez fournies ne sont pas valides. Veuillez vérifier le format du champ et réessayer."
-    window.INVALID_DATE = "Veuillez saisir une date valide"
-    window.REQUIRED_MULTISELECT_MESSAGE = 'Veuillez choisir au moins une option'
-    window.translation = {
-      common: {
-        selectedList: '{quantity} liste sélectionnée',
-        selectedLists: '{quantity} listes sélectionnées',
-        selectedOption: '{quantity} sélectionné',
-        selectedOptions: '{quantity} sélectionnés',
-      }
-    }
-    window.AUTOHIDE = false
-
-    // Injecter le script principal Brevo
-    const script = document.createElement('script')
-    script.src = 'https://sibforms.com/forms/end-form/build/main.js'
-    script.defer = true
-    document.body.appendChild(script)
-
-    // Nettoyage quand le composant est démonté
-    return () => {
-      if (link.parentNode) link.parentNode.removeChild(link)
-      if (script.parentNode) script.parentNode.removeChild(script)
-    }
-  }, [])
-
   return (
     <div className="sib-form" style={{ textAlign: 'center', backgroundColor: 'transparent' }}>
       <div id="sib-form-container" className="sib-form-container">
