@@ -6,6 +6,7 @@ import { articles } from '../data/articles'
 import FeaturedTools from '../components/FeaturedTools'
 import AINews from '../components/AINews'
 import Gallery from '../components/Gallery'
+import BrevoForm from '../components/BrevoForm'
 
 export default function Home() {
   const featuredTools = tools.slice(0, 6)
@@ -109,19 +110,7 @@ export default function Home() {
           <p className="text-primary-50 mb-8 text-lg max-w-xl mx-auto">
             Inscrivez-vous pour recevoir notre guide <strong>"10 Prompts ChatGPT pour Freelances"</strong> + nos meilleures astuces IA chaque semaine.
           </p>
-          
-          {/* Formulaire Brevo intégré — URL corrigée avec /v2/ */}
-          <div className="bg-white rounded-2xl p-4 shadow-2xl max-w-xl mx-auto overflow-hidden">
-            <iframe
-              width="540"
-              height="305"
-              src="https://0fbf6b70.sibforms.com/serve/MUIFAluEbssuonv2HY8YTwdSnA2JkPwGvwWFVcCTkeuS7u50lOIRTPppef9KIyjcTJuWkWraRu__LZFbr3SNlVnNj5J3ctef1VEl_Pig9rnaciXGfBg5LbQbLZkkLW_gCn7fobtOCFVvsfLISiS9sIzsOnHdGoOJS3wOtp1DQN84ScbtEohhAYB9BJ7rWy1osr4NOUmEosQBY9Rew=="
-              frameBorder="0"
-              scrolling="auto"
-              allowFullScreen
-              style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', maxWidth: '100%' }}
-            ></iframe>
-          </div>
+          <BrevoForm />
         </div>
       </section>
     </div>
