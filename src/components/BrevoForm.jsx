@@ -58,39 +58,23 @@ export default function BrevoForm() {
             maxWidth: '540px',
             margin: '0 auto',
             textAlign: 'center',
-            backgroundColor: 'rgba(191,215,116,0.91)',
-            borderWidth: '2px',
-            borderStyle: 'dashed',
-            borderColor: '#4e6275',
+            backgroundColor: 'transparent',
+            borderWidth: '0px',
             borderRadius: '21px',
             direction: 'ltr',
-            padding: '16px',
+            padding: '8px',
           }}
         >
           <form
             id="sib-form"
             method="POST"
-            action="https://0fbf6b70.sibforms.com/serve/MUIFAluEbssuonv2HY8YTwdSnA2JkPwGvwWFVcCTkeuS7u50lOIRTPppef9KIyjcTJuWkWraRu__LZFbr3SNlVnNj5J3ctef1VEl_Pig9rnaciXGfBg5LbQbLZkkLW_gCn7fobtOCFVvsfLISiS9sIzsOnHdGoOJS3wOtp1DQN84ScbtEohhAYB9BJ7rWy1osr4NOUmEosQBY9Rew=="
+            action="https://0fbf6b70.sibforms.com/serve/MUIFAFItc5BdmrJrOYaF3cqZtlUP432pxrFilK_e8xHGInn2k3fvxo00ljwWUsW9DuTsfJvh0rGBfNhFjMZUtlYTqQ3bezkvRU9psGJKbxlPNOjVfr9FpAO2G6-8RvzreUAHzhfkRMwey34dNqdWqlABfwOrLMIVfO81zt3eUVhDzgy9FCmg4DrLNaeBMeDvhFkyziMnijZFj_itqw=="
             data-type="subscription"
           >
             <div style={{ padding: '8px 0' }}>
               <div className="sib-input sib-form-block">
                 <div className="form__entry entry_block">
                   <div className="form__label-row">
-                    <label
-                      className="entry__label"
-                      style={{
-                        fontWeight: 700,
-                        textAlign: 'left',
-                        fontFamily: 'Helvetica, sans-serif',
-                        fontSize: '16px',
-                        color: '#3c4858',
-                        display: 'block',
-                      }}
-                      htmlFor="PRENOM"
-                    >
-                      Entrez votre PRENOM
-                    </label>
                     <div className="entry__field">
                       <input
                         className="input"
@@ -101,6 +85,14 @@ export default function BrevoForm() {
                         autoComplete="off"
                         placeholder="PRENOM"
                         required
+                        style={{
+                          width: '100%',
+                          padding: '12px 16px',
+                          fontSize: '16px',
+                          border: '1px solid #c0ccda',
+                          borderRadius: '4px',
+                          backgroundColor: '#ffffff',
+                        }}
                       />
                     </div>
                   </div>
@@ -112,29 +104,23 @@ export default function BrevoForm() {
               <div className="sib-input sib-form-block">
                 <div className="form__entry entry_block">
                   <div className="form__label-row">
-                    <label
-                      className="entry__label"
-                      style={{
-                        fontWeight: 700,
-                        textAlign: 'left',
-                        fontFamily: 'Helvetica, sans-serif',
-                        fontSize: '16px',
-                        color: '#3c4858',
-                        display: 'block',
-                      }}
-                      htmlFor="EMAIL"
-                    >
-                      Votre EMAIL
-                    </label>
                     <div className="entry__field">
                       <input
                         className="input"
-                        type="text"
+                        type="email"
                         id="EMAIL"
                         name="EMAIL"
                         autoComplete="off"
                         placeholder="EMAIL"
                         required
+                        style={{
+                          width: '100%',
+                          padding: '12px 16px',
+                          fontSize: '16px',
+                          border: '1px solid #c0ccda',
+                          borderRadius: '4px',
+                          backgroundColor: '#ffffff',
+                        }}
                       />
                     </div>
                   </div>
@@ -147,16 +133,17 @@ export default function BrevoForm() {
                 <button
                   className="sib-form-block__button sib-form-block__button-with-loader"
                   style={{
-                    fontFamily: 'Baskerville, serif',
-                    fontSize: '21px',
+                    fontFamily: 'Palatino Linotype, serif',
+                    fontSize: '23px',
                     fontWeight: 700,
                     textAlign: 'center',
                     color: '#FFFFFF',
-                    backgroundColor: '#1cecb8',
+                    backgroundColor: '#1a9f80',
                     borderWidth: '0px',
-                    borderRadius: '14px',
-                    padding: '12px 24px',
+                    borderRadius: '4px',
+                    padding: '14px 32px',
                     cursor: 'pointer',
+                    width: '100%',
                   }}
                   form="sib-form"
                   type="submit"
