@@ -110,12 +110,12 @@ export default function Home() {
             Inscrivez-vous pour recevoir notre guide <strong>"10 Prompts ChatGPT pour Freelances"</strong> + nos meilleures astuces IA chaque semaine.
           </p>
           
-          {/* Formulaire Brevo intégré */}
+          {/* Formulaire Brevo intégré — URL corrigée avec /v2/ */}
           <div className="bg-white rounded-2xl p-4 shadow-2xl max-w-xl mx-auto overflow-hidden">
             <iframe
               width="540"
               height="305"
-              src="https://0fbf6b70.sibforms.com/v2/serve/MUIFAluEbssuonv2HY8YTwdSnA2JkPwGvwWFVcCTkeuS7u50lOIRTPppef9KIyjcTJJJwWkRwaRu__LZFbr3SNlVnNj5J3ctef1VEl_Pig9rnaciXGfBg5LbQbLZkkLW_gCn7fobtOCFVvsfLISiS9sIzsOnHdGoOJS3wOtp1DQN84ScbtEohhAYB9BJ7rWy1osr4NOUmEosQBY9Rew=="
+              src="https://0fbf6b70.sibforms.com/v2/serve/MUIFAluEbssuonv2HY8YTwdSnA2JkPwGvwWFVcCTkeuS7u50lOIRTPppef9KIyjcTJuWkWraRu__LZFbr3SNlVnNj5J3ctef1VEl_Pig9rnaciXGfBg5LbQbLZkkLW_gCn7fobtOCFVvsfLISiS9sIzsOnHdGoOJS3wOtp1DQN84ScbtEohhAYB9BJ7rWy1osr4NOUmEosQBY9Rew=="
               frameBorder="0"
               scrolling="auto"
               allowFullScreen
