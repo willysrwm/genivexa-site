@@ -46,7 +46,7 @@ export default function BrevoForm() {
       setEmail('')
 
       // Reset après 8 secondes
-      setTimeout(() => setStatus('idle'), 8000)
+      setTimeout(() => setStatus('idle'), 15000)
     } catch (error) {
       setStatus('error')
       setErrorMessage('Une erreur est survenue. Veuillez réessayer.')
