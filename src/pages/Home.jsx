@@ -4,7 +4,6 @@ import ToolCard from '../components/ToolCard'
 import { tools } from '../data/tools'
 import { articles } from '../data/articles'
 import FeaturedTools from '../components/FeaturedTools'
-import AINews from '../components/AINews'
 import Gallery from '../components/Gallery'
 import BrevoForm from '../components/BrevoForm'
 import DynamicAINews from '../components/DynamicAINews'
@@ -18,10 +17,12 @@ export default function Home() {
     <div>
       <Hero />
       
-      {/* SECTION ACTUALITÉS IA */}
-     <DynamicAINews />
-       {/* Galerie photos */}
+      {/* SECTION ACTUALITÉS IA DYNAMIQUE */}
+      <DynamicAINews />
+      
+      {/* Galerie photos */}
       <Gallery />
+      
       {/* SECTION SÉLECTION PREMIUM */}
       <FeaturedTools />
 
@@ -111,7 +112,11 @@ export default function Home() {
           <p className="text-primary-50 mb-8 text-lg max-w-xl mx-auto">
             Inscrivez-vous pour recevoir notre guide <strong>"10 Prompts ChatGPT pour Freelances"</strong> + nos meilleures astuces IA chaque semaine.
           </p>
-          <BrevoForm />
+          
+          {/* Formulaire Brevo intégré en HTML direct */}
+          <div className="bg-white rounded-2xl p-4 shadow-2xl max-w-xl mx-auto">
+            <BrevoForm />
+          </div>
         </div>
       </section>
     </div>
