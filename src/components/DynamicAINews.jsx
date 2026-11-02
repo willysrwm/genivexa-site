@@ -6,7 +6,7 @@ export default function DynamicAINews() {
 
   useEffect(() => {
     // REMPLACEZ L'URL CI-DESSOUS PAR VOTRE URL RSS2JSON
-    const RSS_URL = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ftechcrunch.com%2Fcategory%2Fartificial-intelligence%2Ffeed%2F"
+    const RSS_URL = https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ftechcrunch.com%2Fcategory%2Fartificial-intelligence%2Ffeed%2F
 
     fetch(RSS_URL)
       .then(res => res.json())
