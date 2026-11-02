@@ -5,25 +5,28 @@ export default function DynamicAINews() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // REMPLACEZ L'URL CI-DESSOUS PAR VOTRE URL RSS2JSON
-    const RSS_URL = https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ftechcrunch.com%2Fcategory%2Fartificial-intelligence%2Ffeed%2F
-
-    fetch(RSS_URL)
-      .then(res => res.json())
-      .then(data => {
-        if (data.items) {
-          // On ne garde que les 4 dernières news
+    // URL directe pour éviter les erreurs de variables
+    fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ftechcrunch.com%2Fcategory%2Fartificial-intelligence%2Ffeed%2F")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.items) {
           setNews(data.items.slice(0, 4))
         }
         setLoading(false)
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Erreur chargement news:", err)
         setLoading(false)
       })
   }, [])
 
-  if (loading) return <div className="text-center py-8">Chargement des actualités...</div>
+  if (loading) {
+    return (
+      <div className="text-center py-10 text-gray-500">
+        Chargement des actualités...
+      </div>
+    )
+  }
 
   return (
     <section className="py-16 bg-gray-50">
@@ -46,7 +49,6 @@ export default function DynamicAINews() {
               rel="noopener noreferrer"
               className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col"
             >
-              {/* Image de l'article (si disponible) */}
               {item.thumbnail && (
                 <img src={item.thumbnail} alt={item.title} className="w-full h-40 object-cover" />
               )}
