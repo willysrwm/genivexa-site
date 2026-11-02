@@ -19,7 +19,7 @@ export default function DynamicAINews() {
       })
   }, [])
 
-  if (loading) return <div className="text-center py-10 text-gray-500">Chargement des actualités...</div>
+  if (loading) return <div className="text-center py-10 text-gray-500">Loading news...</div>
 
   // On récupère les 2 premières news pour le bandeau défilant
   const flashNews = news.slice(0, 2)
@@ -32,7 +32,7 @@ export default function DynamicAINews() {
         {flashNews.length > 0 && (
           <div className="mb-12 bg-gradient-to-r from-primary-600 to-emerald-500 rounded-2xl p-4 flex items-center overflow-hidden shadow-lg">
             <div className="bg-white text-primary-600 font-bold px-4 py-2 rounded-lg whitespace-nowrap mr-4 z-10 flex items-center gap-2">
-              ⚡ FLASH INFO
+              ⚡ FLASH NEWS
             </div>
             <div className="flex-1 overflow-hidden relative h-6">
               <div className="animate-marquee whitespace-nowrap absolute text-white font-medium flex gap-8">
@@ -50,10 +50,10 @@ export default function DynamicAINews() {
         {/* TITRE DE LA SECTION */}
         <div className="text-center mb-12">
           <span className="bg-primary-100 text-primary-700 font-bold px-4 py-2 rounded-full text-sm mb-4 inline-block">
-            📰 ACTUALITÉS IA — MIS À JOUR
+            📰 AI NEWS — UPDATED
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Ce qui se passe dans l'IA
+           What's happening in AI
           </h2>
         </div>
 
@@ -86,7 +86,7 @@ export default function DynamicAINews() {
                   {item.description.replace(/<[^>]*>?/gm, '').substring(0, 100)}...
                 </p>
                 <span className="text-primary-600 font-semibold text-sm mt-4">
-                  Lire la suite →
+                  Read more →
                 </span>
               </div>
             </a>
