@@ -1,19 +1,45 @@
 import { useState, useEffect } from 'react'
 
+// Liste des flux RSS à agréger
+const RSS_FEEDS = [
+  "https://techcrunch.com/category/artificial-intelligence/feed/",
+  "https://venturebeat.com/category/ai/feed/",
+  "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
+  "https://openai.com/news/rss.xml"
+]
+
+// Fonction utilitaire pour convertir un flux RSS en JSON via l'API
+const fetchFeed = (feedUrl) => {
+  const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`
+  return fetch(apiUrl).then(res => res.json())
+}
+
 export default function DynamicAINews() {
   const [news, setNews] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ftechcrunch.com%2Fcategory%2Fartificial-intelligence%2Ffeed%2F")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.items) {
-          setNews(data.items.slice(0, 4))
-        }
+    // On lance les 4 requêtes en même temps
+    Promise.all(RSS_FEEDS.map(url => fetchFeed(url)))
+      .then(results => {
+        let allNews = []
+        
+        results.forEach(data => {
+          // Si le flux a bien fonctionné et contient des items
+          if (data && data.items && data.status === 'ok') {
+            // On prend les 2 premières news de chaque source
+            allNews = [...allNews, ...data.items.slice(0, 2)]
+          }
+        })
+
+        // On mélange le tout (shuffle) pour ne pas avoir 2 news de la même source d'affilée
+        const shuffled = allNews.sort(() => 0.5 - Math.random())
+        
+        // On ne garde que les 4 meilleures (ou les 4 premières après mélange)
+        setNews(shuffled.slice(0, 4))
         setLoading(false)
       })
-      .catch((err) => {
+      .catch(err => {
         console.error("Erreur chargement news:", err)
         setLoading(false)
       })
@@ -34,7 +60,7 @@ export default function DynamicAINews() {
             What's happening in <span className="text-blue-600">AI</span>
           </h2>
           <p className="text-gray-600">
-            The latest AI news curated for you.
+            The latest AI news curated from top sources.
           </p>
         </div>
 
@@ -48,11 +74,11 @@ export default function DynamicAINews() {
               <div className="animate-marquee whitespace-nowrap text-white font-medium flex gap-12">
                 <span>
                   <span className="font-bold">2026 — </span>
-                  {news[0].title}
+                  {news[0]?.title}
                 </span>
                 <span>
                   🔥 <span className="font-bold">AI Update — </span>
-                  {news[1].title}
+                  {news[1]?.title}
                 </span>
               </div>
             </div>
@@ -69,7 +95,7 @@ export default function DynamicAINews() {
               rel="noopener noreferrer"
               className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col border border-gray-100 relative"
             >
-              {/* Bordure colorée en haut (comme sur l'ancienne capture) */}
+              {/* Bordure colorée en haut */}
               <div className={`h-2 w-full ${index === 0 ? 'bg-blue-500' : index === 1 ? 'bg-purple-500' : index === 2 ? 'bg-teal-500' : 'bg-blue-400'}`}></div>
               
               <div className="p-5 flex flex-col flex-grow">
