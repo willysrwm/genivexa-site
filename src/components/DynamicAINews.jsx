@@ -21,41 +21,43 @@ export default function DynamicAINews() {
 
   if (loading) return <div className="text-center py-10 text-gray-500">Loading news...</div>
 
-  // On récupère les 2 premières news pour le bandeau défilant
-  const flashNews = news.slice(0, 2)
-
   return (
-    <section className="py-16 bg-gray-50 overflow-hidden">
+    <section className="py-16 bg-blue-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* BANDEAU FLASH INFO DÉFILANT */}
-        {flashNews.length > 0 && (
-          <div className="mb-12 bg-gradient-to-r from-primary-600 to-emerald-500 rounded-2xl p-4 flex items-center overflow-hidden shadow-lg">
-            <div className="bg-white text-primary-600 font-bold px-4 py-2 rounded-lg whitespace-nowrap mr-4 z-10 flex items-center gap-2">
-              ⚡ FLASH NEWS
+        {/* TITRE */}
+        <div className="text-center mb-12">
+          <span className="bg-blue-100 text-blue-700 font-bold px-4 py-2 rounded-full text-sm mb-4 inline-block">
+            📰 AI NEWS — UPDATED
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            What's happening in <span className="text-blue-600">AI</span>
+          </h2>
+          <p className="text-gray-600">
+            The latest AI news curated for you.
+          </p>
+        </div>
+
+        {/* BANDEAU FLASH INFO (Style dégradé Orange/Violet) */}
+        {news.length > 0 && (
+          <div className="mb-12 rounded-xl overflow-hidden shadow-lg flex flex-col md:flex-row">
+            <div className="bg-yellow-500 text-white font-bold px-6 py-4 flex items-center gap-2 whitespace-nowrap z-10">
+              ⚡ INFO FLASH
             </div>
-            <div className="flex-1 overflow-hidden relative h-6">
-              <div className="animate-marquee whitespace-nowrap absolute text-white font-medium flex gap-8">
-                {flashNews.map((item, i) => (
-                  <span key={i}>
-                    <span className="font-bold">2026 — </span>
-                    {item.title}
-                  </span>
-                ))}
+            <div className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 relative overflow-hidden flex items-center px-6 py-4">
+              <div className="animate-marquee whitespace-nowrap text-white font-medium flex gap-12">
+                <span>
+                  <span className="font-bold">2026 — </span>
+                  {news[0].title}
+                </span>
+                <span>
+                  🔥 <span className="font-bold">AI Update — </span>
+                  {news[1].title}
+                </span>
               </div>
             </div>
           </div>
         )}
-
-        {/* TITRE DE LA SECTION */}
-        <div className="text-center mb-12">
-          <span className="bg-primary-100 text-primary-700 font-bold px-4 py-2 rounded-full text-sm mb-4 inline-block">
-            📰 AI NEWS — UPDATED
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-           What's happening in AI
-          </h2>
-        </div>
 
         {/* GRILLE DES 4 CARTES */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -65,27 +67,28 @@ export default function DynamicAINews() {
               href={item.link} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col border border-gray-100"
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col border border-gray-100 relative"
             >
-              <div className="p-5 flex flex-col flex-grow relative pt-8">
-                
-                {/* Badge IA NEWS */}
-                <div className="absolute top-4 left-5 flex items-center gap-2">
+              {/* Bordure colorée en haut (comme sur l'ancienne capture) */}
+              <div className={`h-2 w-full ${index === 0 ? 'bg-blue-500' : index === 1 ? 'bg-purple-500' : index === 2 ? 'bg-teal-500' : 'bg-blue-400'}`}></div>
+              
+              <div className="p-5 flex flex-col flex-grow">
+                <div className="flex items-center gap-2 mb-3">
                   <span className="bg-blue-50 text-blue-600 text-xs font-bold px-2 py-1 rounded-md flex items-center gap-1">
-                    🤖 IA NEWS
+                    🤖 AI NEWS
                   </span>
                   <span className="text-xs text-gray-400">
-                    Il y a {Math.floor((new Date() - new Date(item.pubDate)) / (1000 * 60 * 60))} heures
+                    {Math.floor((new Date() - new Date(item.pubDate)) / (1000 * 60 * 60))}h ago
                   </span>
                 </div>
 
-                <h3 className="font-bold text-gray-900 mb-3 line-clamp-3 leading-tight mt-2">
+                <h3 className="font-bold text-gray-900 mb-3 line-clamp-3 leading-tight">
                   {item.title}
                 </h3>
                 <p className="text-sm text-gray-600 line-clamp-3 flex-grow">
                   {item.description.replace(/<[^>]*>?/gm, '').substring(0, 100)}...
                 </p>
-                <span className="text-primary-600 font-semibold text-sm mt-4">
+                <span className="text-blue-600 font-semibold text-sm mt-4">
                   Read more →
                 </span>
               </div>
