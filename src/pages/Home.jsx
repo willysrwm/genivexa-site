@@ -4,7 +4,7 @@ import ToolCard from '../components/ToolCard'
 import { tools } from '../data/tools'
 import { articles } from '../data/articles'
 import FeaturedTools from '../components/FeaturedTools'
-import Gallery from '../components/Gallery'
+import DynamicGallery from '../components/DynamicGallery'
 import BrevoForm from '../components/BrevoForm'
 import DynamicAINews from '../components/DynamicAINews'
 
@@ -21,7 +21,7 @@ export default function Home() {
       <DynamicAINews />
       
       {/* Galerie photos */}
-      <Gallery />
+      <DynamicGallery />
       
       {/* SECTION SÉLECTION PREMIUM */}
       <FeaturedTools />
