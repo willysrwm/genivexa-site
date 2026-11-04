@@ -539,5 +539,15 @@ export const tools = [
     features: ["Funnels illimités", "Email marketing", "Plan gratuit à vie"],
     pricing: "Gratuit / À partir de $27/mois",
     affiliateLink: "https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694"
+  },
+  {
+    id: 53,
+    name: "Magai",
+    icon: "🤖",
+    category: "Chatbots & Assistants",
+    description: "Assistant IA tout-en-un pour créer du contenu, automatiser les tâches et booster votre productivité.",
+    features: ["20% commission récurrente", "Sans code", "Multi-modèles IA"],
+    pricing: "Gratuit / À partir de 19$/mois",
+    affiliateLink: "https://magai.co/?via=wilson-martin"
   }
 ];
