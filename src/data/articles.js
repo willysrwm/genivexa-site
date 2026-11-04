@@ -152,7 +152,9 @@ Dans ce tutoriel, je vous montre comment créer votre premier site professionnel
 
 La première chose à faire est de vous inscrire. Systeme.io propose un plan gratuit à vie qui est largement suffisant pour démarrer (vous pouvez avoir jusqu'à 2 000 contacts et 3 tunnels de vente).
 
-[![Interface de Systeme.io](https://res.cloudinary.com/roq3tbxs/image/upload/v1793774517/systeme.io2.webp)](https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694)
+![Interface de Systeme.io](https://res.cloudinary.com/roq3tbxs/image/upload/v1793774517/systeme.io2.webp)
+
+- [Créer votre compte Systeme.io gratuitement](https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694)
 
 **L'astuce :** Ne prenez pas d'abonnement payant tout de suite. Testez d'abord le plan gratuit pour vous familiariser avec l'interface.
 
