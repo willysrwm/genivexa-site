@@ -92,7 +92,15 @@ export default function Article() {
             if (line.startsWith('## ')) return <h2 key={index} className="text-2xl font-bold mt-8 mb-4">{line.replace('## ', '')}</h2>
             if (line.startsWith('### ')) return <h3 key={index} className="text-xl font-bold mt-6 mb-3">{line.replace('### ', '')}</h3>
             if (line.startsWith('- ')) return <li key={index} className="ml-6 mb-2 list-disc">{renderInline(line.replace('- ', ''), String(index))}</li>
-            if (line.startsWith('> ')) return <blockquote key={index} className="border-l-4 border-primary-500 pl-4 italic text-gray-600 my-4">{line.replace('> ', '')}</blockquote>
+
+                  // Sary (Images)
+            if (line.startsWith('![')) {
+              const match = line.match(/!\[(.*?)\]\((.*?)\)/);
+              if (match) {
+                return <img key={index} src={match[2]} alt={match[1]} className="w-full rounded-xl my-6 shadow-md" />;
+              }
+            }
+      if (line.startsWith('> ')) return <blockquote key={index} className="border-l-4 border-primary-500 pl-4 italic text-gray-600 my-4">{line.replace('> ', '')}</blockquote>
             if (line.trim() === '---') return <hr key={index} className="my-8 border-gray-300" />
             if (line.startsWith('|')) {
               const cells = line.split('|').filter(c => c.trim() !== '')
