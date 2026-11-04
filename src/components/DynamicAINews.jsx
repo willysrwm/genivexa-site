@@ -57,7 +57,6 @@ export default function DynamicAINews() {
         {/* BANDEAU FLASH INFO (Animé) */}
         {news.length > 0 && (
           <div className="mb-12 rounded-xl overflow-hidden shadow-lg flex flex-col md:flex-row group cursor-default">
-            {/* Le badge jaune avec animation de pulsation sur l'icône */}
             <div className="bg-yellow-500 text-white font-bold px-6 py-4 flex items-center gap-2 whitespace-nowrap z-10 transition-transform group-hover:scale-105">
               <span className="animate-pulse">⚡</span> INFO FLASH
             </div>
@@ -84,10 +83,8 @@ export default function DynamicAINews() {
               href={item.link} 
               target="_blank" 
               rel="noopener noreferrer"
-              // group-hover permet de déclencher des animations sur les éléments enfants
               className="group bg-white rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col border border-gray-100 relative"
             >
-              {/* Bordure colorée en haut */}
               <div className={`h-2 w-full ${index === 0 ? 'bg-blue-500' : index === 1 ? 'bg-purple-500' : index === 2 ? 'bg-teal-500' : 'bg-blue-400'}`}></div>
               
               <div className="p-5 flex flex-col flex-grow">
@@ -107,7 +104,6 @@ export default function DynamicAINews() {
                   {item.description.replace(/<[^>]*>?/gm, '').substring(0, 100)}...
                 </p>
                 
-                {/* Le lien "Read more" s'écarte au survol */}
                 <span className="text-blue-600 font-semibold text-sm mt-4 flex items-center gap-1 transform transition-transform group-hover:translate-x-1">
                   Read more <span className="text-lg">→</span>
                 </span>
