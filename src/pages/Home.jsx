@@ -16,13 +16,14 @@ export default function Home() {
   return (
     <div>
       <Hero />
+     
+      {/* Galerie photos */}
+      <DynamicGallery />
       
       {/* SECTION ACTUALITÉS IA DYNAMIQUE */}
       <DynamicAINews />
       
-      {/* Galerie photos */}
-      <DynamicGallery />
-      
+           
       {/* SECTION SÉLECTION PREMIUM */}
       <FeaturedTools />
 
