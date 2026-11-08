@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function DynamicGallery() {
   const [images, setImages] = useState([])
@@ -7,8 +8,9 @@ export default function DynamicGallery() {
 
   // Récupération des images via Unsplash
   useEffect(() => {
-        const randomPage = Math.floor(Math.random() * 10) + 1;
-    fetch(`https://api.unsplash.com/search/photos?query=artificial-intelligence,technology,robot&per_page=8&page=${randomPage}&client_id=2QIJ9l8c85933XyIakeAjUISNUIQvo3eEHxrRO9AQJY`)
+    const randomPage = Math.floor(Math.random() * 10) + 1
+    // ⚠️ REMPLACEZ VOTRE_ACCESS_KEY_UNSPLASH PAR VOTRE CLÉ
+    fetch(`https://api.unsplash.com/search/photos?query=artificial-intelligence,technology,robot&per_page=8&page=${randomPage}&client_id=VOTRE_ACCESS_KEY_UNSPLASH`)
       .then(res => res.json())
       .then(data => {
         if (data.results) {
@@ -43,65 +45,71 @@ export default function DynamicGallery() {
   if (images.length === 0) return null
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <span className="bg-primary-100 text-primary-700 font-bold px-4 py-2 rounded-full text-sm mb-4 inline-block">
-            📸 AI IN ACTION
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            AI in images
-          </h2>
+    <section className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden">
+      
+      {/* IMAGES EN ARRIÈRE-PLAN */}
+      {images.map((img, index) => (
+        <div 
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100 z-0' : 'opacity-0 z-0'}`}
+        >
+          <img 
+            src={img.urls.regular} 
+            alt={img.alt_description || "AI Image"} 
+            className="w-full h-full object-cover" 
+          />
+          {/* Overlay sombre pour faire ressortir le texte */}
+          <div className="absolute inset-0 bg-black/50"></div> 
         </div>
+      ))}
 
-        {/* CARROUSEL */}
-        <div className="relative w-full max-w-4xl mx-auto h-[400px] md:h-[500px] overflow-hidden rounded-3xl shadow-xl group">
-          
-          {/* IMAGES */}
-          {images.map((img, index) => (
-            <div 
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-            >
-              <img 
-                src={img.urls.regular} 
-                alt={img.alt_description || "AI Image"} 
-                className="w-full h-full object-cover" 
-              />
-              <div className="absolute inset-0 bg-black/30"></div>
-              <div className="absolute bottom-8 left-8 right-8 text-center text-white">
-                <p className="text-lg font-semibold">{img.alt_description || "Explore AI"}</p>
-              </div>
-            </div>
-          ))}
-
-          {/* FLÈCHE GAUCHE */}
-          <button 
-            onClick={prevSlide}
-            className="absolute top-1/2 left-4 -translate-y-1/2 z-20 bg-white/50 hover:bg-white/90 text-gray-800 p-3 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
-          </button>
-
-          {/* FLÈCHE DROITE */}
-          <button 
-            onClick={nextSlide}
-            className="absolute top-1/2 right-4 -translate-y-1/2 z-20 bg-white/50 hover:bg-white/90 text-gray-800 p-3 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-          </button>
-
-          {/* INDICATEURS (POINTS) */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-            {images.map((_, index) => (
-              <button 
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${index === currentIndex ? 'bg-white w-6' : 'bg-white/50'}`}
-              />
-            ))}
-          </div>
+      {/* CONTENU (TITRE ET BOUTONS) */}
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <span className="inline-block bg-primary-100/20 backdrop-blur text-primary-100 font-semibold px-4 py-2 rounded-full text-sm mb-6">
+          🚀 +50 outils IA testés et approuvés
+        </span>
+        <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+          Automatisez votre business avec les{' '}
+          <span className="text-primary-400">meilleurs outils IA</span>
+        </h1>
+        <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+          Découvrez, comparez et choisissez les outils d'intelligence artificielle qui transformeront votre productivité.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to="/outils" className="btn-primary">
+            Explorer les outils
+          </Link>
+          <Link to="/blog" className="btn-secondary">
+            Lire le blog
+          </Link>
         </div>
+      </div>
+
+      {/* FLÈCHE GAUCHE */}
+      <button 
+        onClick={prevSlide}
+        className="absolute top-1/2 left-4 -translate-y-1/2 z-20 bg-white/50 hover:bg-white/90 text-gray-800 p-3 rounded-full backdrop-blur-sm transition-all"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
+      </button>
+
+      {/* FLÈCHE DROITE */}
+      <button 
+        onClick={nextSlide}
+        className="absolute top-1/2 right-4 -translate-y-1/2 z-20 bg-white/50 hover:bg-white/90 text-gray-800 p-3 rounded-full backdrop-blur-sm transition-all"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+      </button>
+
+      {/* INDICATEURS (POINTS) */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {images.map((_, index) => (
+          <button 
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2.5 h-2.5 rounded-full transition-all ${index === currentIndex ? 'bg-white w-6' : 'bg-white/50'}`}
+          />
+        ))}
       </div>
     </section>
   )
