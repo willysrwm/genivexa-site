@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
 export default function DynamicGallery() {
   const [images, setImages] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
