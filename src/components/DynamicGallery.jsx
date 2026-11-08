@@ -85,23 +85,7 @@ export default function DynamicGallery() {
         </div>
       </div>
 
-      {/* FLÈCHE GAUCHE */}
-      <button 
-        onClick={prevSlide}
-        className="absolute top-1/2 left-4 -translate-y-1/2 z-20 bg-white/50 hover:bg-white/90 text-gray-800 p-3 rounded-full backdrop-blur-sm transition-all"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
-      </button>
-
-      {/* FLÈCHE DROITE */}
-      <button 
-        onClick={nextSlide}
-        className="absolute top-1/2 right-4 -translate-y-1/2 z-20 bg-white/50 hover:bg-white/90 text-gray-800 p-3 rounded-full backdrop-blur-sm transition-all"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-      </button>
-
-      {/* INDICATEURS (POINTS) */}
+            {/* INDICATEURS (POINTS) */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {images.map((_, index) => (
           <button 
