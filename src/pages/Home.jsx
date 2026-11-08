@@ -1,113 +1,120 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-export default function DynamicGallery() {
-  const [images, setImages] = useState([])
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [loading, setLoading] = useState(true)
+import ToolCard from '../components/ToolCard'
+import { tools } from '../data/tools'
+import { articles } from '../data/articles'
+import FeaturedTools from '../components/FeaturedTools'
+import DynamicGallery from '../components/DynamicGallery'
+import BrevoForm from '../components/BrevoForm'
+import DynamicAINews from '../components/DynamicAINews'
 
-  // Récupération des images via Unsplash
-  useEffect(() => {
-    const randomPage = Math.floor(Math.random() * 10) + 1
-    fetch(`https://api.unsplash.com/search/photos?query=artificial-intelligence,technology,robot&per_page=8&page=${randomPage}&client_id=VOTRE_ACCESS_KEY_UNSPLASH`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.results) {
-          setImages(data.results)
-        }
-        setLoading(false)
-      })
-      .catch(err => {
-        console.error("Erreur chargement galerie:", err)
-        setLoading(false)
-      })
-  }, [])
-
-  // Défilement automatique toutes les 3 secondes
-  useEffect(() => {
-    if (images.length === 0) return
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [images])
-
-  // Fonctions pour les flèches
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-  }
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length)
-  }
-
-  if (loading) return <div className="text-center py-10 text-gray-500">Loading gallery...</div>
-  if (images.length === 0) return null
+export default function Home() {
+  const featuredTools = tools.slice(0, 6)
+  const categories = [...new Set(tools.map(tool => tool.category))]
+  const latestArticles = [...articles].reverse().slice(0, 3)
 
   return (
-    <section className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+    <div>
+      {/* NY GALLERY NO EFA MISY NY HERO AO ANATINY */}
+      <DynamicGallery />
       
-      {/* IMAGES EN ARRIÈRE-PLAN */}
-      {images.map((img, index) => (
-        <div 
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100 z-0' : 'opacity-0 z-0'}`}
-        >
-          <img 
-            src={img.urls.regular} 
-            alt={img.alt_description || "AI Image"} 
-            className="w-full h-full object-cover" 
-          />
-          <div className="absolute inset-0 bg-black/50"></div> {/* Overlay sombre */}
+      {/* SECTION ACTUALITÉS IA DYNAMIQUE */}
+      <DynamicAINews />
+      
+      {/* SECTION SÉLECTION PREMIUM */}
+      <FeaturedTools />
+
+      {/* Categories */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+            Explorez par catégorie
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {categories.map((category, index) => (
+              <Link
+                key={index}
+                to="/outils"
+                className="px-6 py-3 bg-primary-50 hover:bg-primary-100 text-primary-700 font-semibold rounded-full transition-colors"
+              >
+                {category}
+              </Link>
+            ))}
+          </div>
         </div>
-      ))}
+      </section>
 
-      {/* CONTENU (TITRE, BOUTONS) AU-DESSUS */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <span className="inline-block bg-primary-100 text-primary-700 font-semibold px-4 py-2 rounded-full text-sm mb-6">
-          🚀 +50 outils IA testés et approuvés
-        </span>
-        <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
-          Automatisez votre business avec les{' '}
-          <span className="text-primary-400">meilleurs outils IA</span>
-        </h1>
-        <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-          Découvrez, comparez et choisissez les outils d'intelligence artificielle qui transformeront votre productivité.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/outils" className="btn-primary">
-            Explorer les outils
-          </Link>
-          <Link to="/blog" className="btn-secondary">
-            Lire le blog
-          </Link>
+      {/* Derniers articles du blog */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center mb-8">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                📚 Derniers articles du blog
+              </h2>
+              <p className="text-gray-600">
+                Guides pratiques et comparatifs pour maîtriser les outils IA
+              </p>
+            </div>
+            <Link to="/blog" className="text-primary-600 hover:text-primary-700 font-semibold hidden md:block">
+              Tous les articles →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {latestArticles.map((article) => (
+              <Link
+                key={article.id}
+                to={`/blog/${article.slug}`}
+                className="article-card group"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="category-badge text-xs font-bold px-3 py-1 rounded-full">
+                    {article.category}
+                  </span>
+                  <span className="article-meta text-xs">⏱️ {article.readTime}</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 transition-colors line-clamp-2">
+                  {article.title}
+                </h3>
+                <p className="text-sm mb-4 line-clamp-3">
+                  {article.excerpt}
+                </p>
+                <div className="article-footer flex items-center justify-between pt-4 border-t">
+                  <span className="text-xs">📅 {article.date}</span>
+                  <span className="read-more font-semibold text-sm">
+                    Lire →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-8 md:hidden">
+            <Link to="/blog" className="text-primary-600 hover:text-primary-700 font-semibold">
+              Voir tous les articles →
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* FLÈCHE GAUCHE */}
-      <button 
-        onClick={prevSlide}
-        className="absolute top-1/2 left-4 -translate-y-1/2 z-20 bg-white/50 hover:bg-white/90 text-gray-800 p-3 rounded-full backdrop-blur-sm transition-all"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
-      </button>
-
-      {/* FLÈCHE DROITE */}
-      <button 
-        onClick={nextSlide}
-        className="absolute top-1/2 right-4 -translate-y-1/2 z-20 bg-white/50 hover:bg-white/90 text-gray-800 p-3 rounded-full backdrop-blur-sm transition-all"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
-      </button>
-
-      {/* INDICATEURS (POINTS) */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        {images.map((_, index) => (
-          <button 
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-all ${index === currentIndex ? 'bg-white w-6' : 'bg-white/50'}`}
-          />
-        ))}
-      </div>
-    </section>
+      {/* CTA Newsletter — Brevo */}
+      <section className="py-16 bg-gradient-to-br from-primary-600 to-emerald-500">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-block bg-white/20 backdrop-blur text-white font-bold px-4 py-2 rounded-full text-sm mb-4">
+            📩 NEWSLETTER GRATUITE
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Recevez votre Guide IA Gratuit
+          </h2>
+          <p className="text-primary-50 mb-8 text-lg max-w-xl mx-auto">
+            Inscrivez-vous pour recevoir notre guide <strong>"10 Prompts ChatGPT pour Freelances"</strong> + nos meilleures astuces IA chaque semaine.
+          </p>
+          
+          <div className="bg-white rounded-2xl p-4 shadow-2xl max-w-xl mx-auto">
+            <BrevoForm />
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }
