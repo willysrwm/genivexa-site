@@ -8,7 +8,7 @@ export default function DynamicGallery() {
   // Récupération des images via Unsplash
   useEffect(() => {
         const randomPage = Math.floor(Math.random() * 10) + 1;
-    fetch(`https://api.unsplash.com/search/photos?query=artificial-intelligence,technology,robot&per_page=8&page=${randomPage}&client_id=VOTRE_ACCESS_KEY_UNSPLASH`)
+    fetch(`https://api.unsplash.com/search/photos?query=artificial-intelligence,technology,robot&per_page=8&page=${randomPage}&client_id=2QIJ9l8c85933XyIakeAjUISNUIQvo3eEHxrRO9AQJY`)
       .then(res => res.json())
       .then(data => {
         if (data.results) {
