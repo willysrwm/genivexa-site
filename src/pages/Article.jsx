@@ -57,7 +57,6 @@ export default function Article() {
     )
   }
 
-  // Balises SEO dynamiques
   const pageTitle = `${article.title} | GeniVexa`
   const pageUrl = `https://genivexa.vercel.app/blog/${article.slug}`
 
@@ -87,7 +86,6 @@ export default function Article() {
         </header>
 
         <div className="article-content space-y-4">
-          {/* C'EST ICI QUE LE TEXTE EST AFFICHÉ */}
           {article.content.split('\n').map((line, index) => {
             if (line.startsWith('# ')) return <h1 key={index} className="text-3xl font-bold mt-8 mb-4">{line.replace('# ', '')}</h1>
             if (line.startsWith('## ')) return <h2 key={index} className="text-2xl font-bold mt-8 mb-4">{line.replace('## ', '')}</h2>
@@ -101,7 +99,18 @@ export default function Article() {
                 return <img key={index} src={match[2]} alt={match[1]} className="w-full rounded-xl my-6 shadow-md" />;
               }
             }
-            if (line.startsWith('> ')) return <blockquote key={index} className="border-l-4 border-primary-500 pl-4 italic text-gray-600 my-4">{line.replace('> ', '')}</blockquote>
+
+            // BLOCKQUOTE (Cadre mavo/orange)
+            if (line.startsWith('> ')) {
+              return (
+                <div key={index} className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded-r-lg">
+                  <p className="text-yellow-800 font-medium">
+                    {renderInline(line.replace('> ', ''), String(index))}
+                  </p>
+                </div>
+              )
+            }
+
             if (line.trim() === '---') return <hr key={index} className="my-8 border-gray-300" />
             if (line.startsWith('|')) {
               const cells = line.split('|').filter(c => c.trim() !== '')
@@ -124,7 +133,7 @@ export default function Article() {
         <footer className="mt-16 pt-8 border-t-2 border-primary-100">
           <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 text-center">
             
-            {/* LOGIQUE CONDITIONNELLE POUR LE CTA (Misy 'prospection' izao) */}
+            {/* LOGIQUE CONDITIONNELLE POUR LE CTA */}
             {article.slug.includes('make') || article.slug.includes('systeme-io') || article.slug.includes('jasper') || article.slug.includes('notta') || article.slug.includes('prospection') ? (
               <>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -138,7 +147,7 @@ export default function Article() {
                     article.slug.includes('make') ? "https://www.make.com/en/register?pc=genivexa" :
                     article.slug.includes('systeme-io') || article.slug.includes('prospection') ? "https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694" :
                     article.slug.includes('jasper') ? "https://www.jasper.ai/?fpr=genivexa" :
-                    "https://ypetp.com/g/7gbdp8tygu678588d05ff50bb56640/" // Lien Notta
+                    "https://ypetp.com/g/7gbdp8tygu678588d05ff50bb56640/"
                   }
                   target="_blank"
                   rel="noopener noreferrer"
