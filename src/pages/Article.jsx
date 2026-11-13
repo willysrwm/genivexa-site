@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { articles } from '../data/articles'
+import BrevoForm from '../components/BrevoForm'
 
 function renderInline(text, keyPrefix = '') {
   const tokens = []
@@ -120,14 +121,54 @@ export default function Article() {
           })}
         </div>
 
-        <footer className="mt-16 pt-8 border-t-2 border-primary-100">
+                <footer className="mt-16 pt-8 border-t-2 border-primary-100">
           <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">💡 Prêt à passer à l'action ?</h3>
-            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">Découvrez Make, l'outil d'automatisation le plus puissant du marché. Plan gratuit inclus, sans carte bancaire.</p>
-            <a href="https://www.make.com/en/register?pc=genivexa" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-colors shadow-lg hover:shadow-xl">🚀 Essayer Make gratuitement</a>
+            
+            {/* LOGIQUE CONDITIONNELLE POUR LE CTA */}
+            {article.slug.includes('make') || article.slug.includes('systeme-io') || article.slug.includes('jasper') || article.slug.includes('notta') ? (
+              // Si l'article parle de Make, Systeme.io, Jasper ou Notta, on affiche le lien d'affiliation
+              <>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  💡 Prêt à passer à l'action ?
+                </h3>
+                <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+                  Découvrez l'outil dont nous venons de parler. Plan gratuit inclus, sans carte bancaire.
+                </p>
+                <a
+                  href={
+                    article.slug.includes('make') ? "https://www.make.com/en/register?pc=genivexa" :
+                    article.slug.includes('systeme-io') ? "https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694" :
+                    article.slug.includes('jasper') ? "https://www.jasper.ai/?fpr=genivexa" :
+                    "https://ypetp.com/g/7gbdp8tygu678588d05ff50bb56640/" // Lien Notta
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-colors shadow-lg hover:shadow-xl"
+                >
+                  🚀 Essayer {article.slug.includes('make') ? 'Make' : article.slug.includes('systeme-io') ? 'Systeme.io' : article.slug.includes('jasper') ? 'Jasper' : 'Notta'} gratuitement
+                </a>
+              </>
+            ) : (
+              // Sinon, on affiche le formulaire Newsletter
+              <>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  📩 Recevez votre Guide IA Gratuit
+                </h3>
+                <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+                  Inscrivez-vous pour recevoir notre guide <strong>"10 Prompts ChatGPT pour Freelances"</strong> + nos meilleures astuces IA chaque semaine.
+                </p>
+                <div className="max-w-md mx-auto">
+                  <BrevoForm />
+                </div>
+              </>
+            )}
+            
           </div>
+
           <div className="mt-8 text-center">
-            <Link to="/blog" className="text-primary-600 hover:text-primary-700 font-semibold">← Voir tous les articles</Link>
+            <Link to="/blog" className="text-primary-600 hover:text-primary-700 font-semibold">
+              ← Voir tous les articles
+            </Link>
           </div>
         </footer>
       </article>
