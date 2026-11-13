@@ -100,8 +100,8 @@ export default function Article() {
               }
             }
 
-            // BLOCKQUOTE (Cadre mavo/orange)
-            if (line.startsWith('> ')) {
+            // BLOCKQUOTE (Cadre mavo/orange) - MAMANTATRA NY '⚠️' NA '>'
+            if (line.startsWith('⚠️') || line.startsWith('> ')) {
               return (
                 <div key={index} className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded-r-lg">
                   <p className="text-yellow-800 font-medium">
