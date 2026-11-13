@@ -101,10 +101,10 @@ export default function Article() {
             }
 
             // BLOCKQUOTE (Cadre mavo/orange) - MAMANTATRA NY '⚠️' NA '>'
-           if (line.includes('⚠️') || line.startsWith('> ')) {
+          if (line.includes('⚠️') || line.startsWith('> ')) {
   return (
     <div key={index} className="bg-yellow-50 border-l-4 border-yellow-500 p-4 my-6 rounded-r-lg">
-      <p className="text-yellow-800 font-medium">
+      <p className="text-yellow-800 font-medium text-sm"> {/* text-sm ho an'ny caractère kely kokoa */}
         {renderInline(line.replace('> ', ''), String(index))}
       </p>
     </div>
