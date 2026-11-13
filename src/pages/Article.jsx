@@ -94,14 +94,14 @@ export default function Article() {
             if (line.startsWith('### ')) return <h3 key={index} className="text-xl font-bold mt-6 mb-3">{line.replace('### ', '')}</h3>
             if (line.startsWith('- ')) return <li key={index} className="ml-6 mb-2 list-disc">{renderInline(line.replace('- ', ''), String(index))}</li>
 
-                  // Sary (Images)
+            // Sary (Images)
             if (line.startsWith('![')) {
               const match = line.match(/!\[(.*?)\]\((.*?)\)/);
               if (match) {
                 return <img key={index} src={match[2]} alt={match[1]} className="w-full rounded-xl my-6 shadow-md" />;
               }
             }
-      if (line.startsWith('> ')) return <blockquote key={index} className="border-l-4 border-primary-500 pl-4 italic text-gray-600 my-4">{line.replace('> ', '')}</blockquote>
+            if (line.startsWith('> ')) return <blockquote key={index} className="border-l-4 border-primary-500 pl-4 italic text-gray-600 my-4">{line.replace('> ', '')}</blockquote>
             if (line.trim() === '---') return <hr key={index} className="my-8 border-gray-300" />
             if (line.startsWith('|')) {
               const cells = line.split('|').filter(c => c.trim() !== '')
@@ -121,12 +121,11 @@ export default function Article() {
           })}
         </div>
 
-                <footer className="mt-16 pt-8 border-t-2 border-primary-100">
+        <footer className="mt-16 pt-8 border-t-2 border-primary-100">
           <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 text-center">
             
-            {/* LOGIQUE CONDITIONNELLE POUR LE CTA */}
-            {article.slug.includes('make') || article.slug.includes('systeme-io') || article.slug.includes('jasper') || article.slug.includes('notta') ? (
-              // Si l'article parle de Make, Systeme.io, Jasper ou Notta, on affiche le lien d'affiliation
+            {/* LOGIQUE CONDITIONNELLE POUR LE CTA (Misy 'prospection' izao) */}
+            {article.slug.includes('make') || article.slug.includes('systeme-io') || article.slug.includes('jasper') || article.slug.includes('notta') || article.slug.includes('prospection') ? (
               <>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
                   💡 Prêt à passer à l'action ?
@@ -137,7 +136,7 @@ export default function Article() {
                 <a
                   href={
                     article.slug.includes('make') ? "https://www.make.com/en/register?pc=genivexa" :
-                    article.slug.includes('systeme-io') ? "https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694" :
+                    article.slug.includes('systeme-io') || article.slug.includes('prospection') ? "https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694" :
                     article.slug.includes('jasper') ? "https://www.jasper.ai/?fpr=genivexa" :
                     "https://ypetp.com/g/7gbdp8tygu678588d05ff50bb56640/" // Lien Notta
                   }
@@ -145,11 +144,10 @@ export default function Article() {
                   rel="noopener noreferrer"
                   className="inline-block bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-8 rounded-xl transition-colors shadow-lg hover:shadow-xl"
                 >
-                  🚀 Essayer {article.slug.includes('make') ? 'Make' : article.slug.includes('systeme-io') ? 'Systeme.io' : article.slug.includes('jasper') ? 'Jasper' : 'Notta'} gratuitement
+                  🚀 Essayer {article.slug.includes('make') ? 'Make' : article.slug.includes('systeme-io') || article.slug.includes('prospection') ? 'Systeme.io' : article.slug.includes('jasper') ? 'Jasper' : 'Notta'} gratuitement
                 </a>
               </>
             ) : (
-              // Sinon, on affiche le formulaire Newsletter
               <>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
                   📩 Recevez votre Guide IA Gratuit
