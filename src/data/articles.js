@@ -3220,7 +3220,7 @@ Notta AI et Otter.ai sont **les deux meilleurs outils de transcription IA** de 2
     `
   },
   // --- IREO LAHATSORATRA VAOVAO ---
-  {
+    {
     id: 13,
     slug: 'meilleurs-prompts-chatgpt-freelances',
     title: 'Les 15 meilleurs prompts ChatGPT pour freelances en 2026',
@@ -3237,6 +3237,8 @@ Mais voilà le problème : beaucoup de freelances utilisent ChatGPT comme un sim
 **La clé, ce sont les prompts.** Un bon prompt est une instruction précise qui donne un rôle à l'IA, un contexte, et un format de sortie.
 
 Dans ce guide, j'ai compilé **les 15 meilleurs prompts** que j'utilise personnellement au quotidien. Copiez-les, adaptez-les, et voyez la différence.
+
+**⚠️ Attention :** Ces prompts sont puissants. Si vous ne les utilisez pas, vous risquez de perdre des heures précieuses. (Urgence)
 
 ---
 
@@ -3357,6 +3359,8 @@ Le problème avec les outils comme WordPress, c'est la complexité. Il faut gér
 
 C'est là qu'intervient **Systeme.io**. C'est une plateforme "tout-en-un" qui combine un créateur de site web, un outil d'emailing, et un système de tunnels de vente (funnels). Le tout sans une seule ligne de code.
 
+**Systeme.io est déjà utilisé par plus de 500 000 entrepreneurs à travers le monde.** (Preuve sociale)
+
 Dans ce tutoriel, je vous montre comment créer votre premier site professionnel en **moins de 10 minutes**.
 
 - [Créer votre compte Systeme.io gratuitement](https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694)
@@ -3372,6 +3376,8 @@ La première chose à faire est de vous inscrire. Systeme.io propose un plan gra
 - [Créer votre compte Systeme.io gratuitement](https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694)
 
 **L'astuce :** Ne prenez pas d'abonnement payant tout de suite. Testez d'abord le plan gratuit pour vous familiariser avec l'interface.
+
+**⚠️ Attention :** Le plan gratuit est à vie, mais les conditions peuvent changer. **Ne perdez pas cette opportunité.** (Urgence)
 
 - [Créer votre compte Systeme.io gratuitement](https://systeme.io/fr?sa=0004318256e8f4bb16df8d117c373643e20b793694)
 
@@ -3444,6 +3450,7 @@ Créer un site web n'est plus un frein technique. C'est un choix stratégique. E
 
 *Article mis à jour le 4 novembre 2026.*`
   },
+ 
     {
     id: 15,
     slug: 'automatiser-prospection-client-ia',
