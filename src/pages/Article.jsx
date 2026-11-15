@@ -117,7 +117,7 @@ export default function Article() {
               if (cells.every(c => c.match(/^[-: ]+$/))) return null
               const isHeader = line.includes('Critère') || line.includes('---|') || (cells[0] && cells[0].includes('**'))
               return (
-                <tr key={index} className="border-b border-gray-200 hover:bg-green-300 transition-colors">
+                <tr key={index} className="border-b border-gray-200 hover:bg-green-500 transition-colors">
                   {cells.map((cell, i) => {
                     const content = cell.trim()
                     return isHeader ? (
