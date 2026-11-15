@@ -112,21 +112,23 @@ export default function Article() {
             }
 
             if (line.trim() === '---') return <hr key={index} className="my-8 border-gray-300" />
-            if (line.startsWith('|')) {
-              const cells = line.split('|').filter(c => c.trim() !== '')
-              if (cells.every(c => c.match(/^[-: ]+$/))) return null
-              const isHeader = line.includes('Critère') || line.includes('---|') || (cells[0] && cells[0].includes('**'))
-              return (
-               <tr key={index} className="border-b border-gray-200 hover:bg-gray-100 transition-colors">
-                  {cells.map((cell, i) => {
-                    const content = cell.trim()
-                    return isHeader ? (
-                      <th key={i} className="p-3 bg-gray-50 text-left">{content}</th>
-                    ) : (
-                      <td key={i} className="p-3">{renderInline(content, `${index}-${i}`)}</td>
-                    )
-                  })}
-                </tr>
+if (line.startsWith('|')) {
+  const cells = line.split('|').filter(c => c.trim() !== '')
+  if (cells.every(c => c.match(/^[-: ]+$/))) return null
+  const isHeader = line.includes('Critère') || line.includes('---|') || (cells[0] && cells[0].includes('**'))
+  return (
+    <tr key={index} className="border-b border-gray-200 hover:bg-gray-200 transition-colors">
+      {cells.map((cell, i) => {
+        const content = cell.trim()
+        return isHeader ? (
+          <th key={i} className="p-3 bg-gray-50 text-left">{content}</th>
+        ) : (
+          <td key={i} className="p-3">{renderInline(content, `${index}-${i}`)}</td>
+        )
+      })}
+    </tr>
+  )
+}
               )
             }
       // Italique (texte entre * *)
