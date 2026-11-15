@@ -112,34 +112,34 @@ export default function Article() {
             }
 
             if (line.trim() === '---') return <hr key={index} className="my-8 border-gray-300" />
-if (line.startsWith('|')) {
-  const cells = line.split('|').filter(c => c.trim() !== '')
-  if (cells.every(c => c.match(/^[-: ]+$/))) return null
-  const isHeader = line.includes('Critère') || line.includes('---|') || (cells[0] && cells[0].includes('**'))
-  return (
-    <tr key={index} className="border-b border-gray-200 hover:bg-gray-200 transition-colors">
-      {cells.map((cell, i) => {
-        const content = cell.trim()
-        return isHeader ? (
-          <th key={i} className="p-3 bg-gray-50 text-left">{content}</th>
-        ) : (
-          <td key={i} className="p-3">{renderInline(content, `${index}-${i}`)}</td>
-        )
-      })}
-    </tr>
-  )
-}
+            if (line.startsWith('|')) {
+              const cells = line.split('|').filter(c => c.trim() !== '')
+              if (cells.every(c => c.match(/^[-: ]+$/))) return null
+              const isHeader = line.includes('Critère') || line.includes('---|') || (cells[0] && cells[0].includes('**'))
+              return (
+                <tr key={index} className="border-b border-gray-200 hover:bg-gray-200 transition-colors">
+                  {cells.map((cell, i) => {
+                    const content = cell.trim()
+                    return isHeader ? (
+                      <th key={i} className="p-3 bg-gray-50 text-left">{content}</th>
+                    ) : (
+                      <td key={i} className="p-3">{renderInline(content, `${index}-${i}`)}</td>
+                    )
+                  })}
+                </tr>
               )
             }
-      // Italique (texte entre * *)
-if (line.startsWith('*') && line.endsWith('*')) {
-  return (
-    <p key={index} className="text-sm italic text-gray-500 my-4">
-      {line.slice(1, -1)}
-    </p>
-  )
-}     
-      if (line.trim() === '') return <div key={index} className="h-4"></div>
+
+            // Italique (texte entre * *)
+            if (line.startsWith('*') && line.endsWith('*')) {
+              return (
+                <p key={index} className="text-sm italic text-gray-500 my-4">
+                  {line.slice(1, -1)}
+                </p>
+              )
+            }
+
+            if (line.trim() === '') return <div key={index} className="h-4"></div>
             return <p key={index} className="mb-4 text-gray-700 leading-relaxed">{renderInline(line, String(index))}</p>
           })}
         </div>
