@@ -875,7 +875,7 @@ Pour être dans ce top 10, chaque outil devait respecter :
 
 ---
 
-### 📊 Tableau comparatif rapide (Outils IA gratuits)
+## 📊 Tableau comparatif rapide (Outils IA gratuits)
 
 | Outil | Catégorie | Version gratuite | Lien |
 |-------|-----------|------------------|------|
