@@ -129,7 +129,15 @@ export default function Article() {
                 </tr>
               )
             }
-            if (line.trim() === '') return <div key={index} className="h-4"></div>
+      // Italique (texte entre * *)
+if (line.startsWith('*') && line.endsWith('*')) {
+  return (
+    <p key={index} className="text-sm italic text-gray-500 my-4">
+      {line.slice(1, -1)}
+    </p>
+  )
+}     
+      if (line.trim() === '') return <div key={index} className="h-4"></div>
             return <p key={index} className="mb-4 text-gray-700 leading-relaxed">{renderInline(line, String(index))}</p>
           })}
         </div>
