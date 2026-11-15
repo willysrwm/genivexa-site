@@ -890,9 +890,11 @@ Pour être dans ce top 10, chaque outil devait respecter :
 | Leonardo AI | Image | 150 jetons/jour | [Essayer](https://leonardo.ai/) |
 | Descript | Vidéo | 1h/mois | [Essayer](https://descript.com/) |
 
+*Cliquez sur "Essayer" pour accéder directement à l'outil. Certains liens sont des liens d'affiliation.*
+
 ---
 
-*Cliquez sur "Essayer" pour accéder directement à l'outil. Certains liens sont des liens d'affiliation.*
+
 
 ## 💡 Comment choisir ?
 
