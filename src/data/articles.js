@@ -892,7 +892,25 @@ Pour être dans ce top 10, chaque outil devait respecter :
 
 ---
 
+### 📊 Tableau comparatif rapide (Outils IA gratuits)
+
+| Outil | Catégorie | Version gratuite | Lien |
+|-------|-----------|------------------|------|
+| **ChatGPT** | Chatbot | Très généreuse | [Essayer](https://chat.openai.com/) |
+| **Speechify** | Audio | 10 min/jour | [Essayer](https://speechify.com/) |
+| **Make** | Automatisation | 1 000 ops/mois | [Essayer](https://www.make.com/) |
+| **Canva AI** | Design | Généreuse | [Essayer](https://canva.com/) |
+| **Claude AI** | Chatbot | Quotidienne | [Essayer](https://claude.ai/) |
+| **Perplexity** | Recherche | Illimitée | [Essayer](https://perplexity.ai/) |
+| **Notion AI** | Productivité | 20 réponses/mois | [Essayer](https://notion.so/) |
+| **ElevenLabs** | Audio | 10 000 car./mois | [Essayer](https://elevenlabs.io/) |
+| **Leonardo AI** | Image | 150 jetons/jour | [Essayer](https://leonardo.ai/) |
+| **Descript** | Vidéo | 1h/mois | [Essayer](https://descript.com/) |
+
+*Cliquez sur "Essayer" pour accéder directement à l'outil. Certains liens sont des liens d'affiliation.*
 ## 💡 Comment choisir ?
+
+---
 
 **Pour un freelancer** :
 → ChatGPT + Make + Canva AI
