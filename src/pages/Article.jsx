@@ -119,7 +119,7 @@ export default function Article() {
               return (
                 <tr key={index} className="border-b border-gray-200">
                   {cells.map((cell, i) => {
-                    const content = cell.trim().replace(/\*\*/g, '')
+                    const content = cell.trim()
                     return isHeader ? (
                       <th key={i} className="p-3 bg-gray-50 text-left">{content}</th>
                     ) : (
