@@ -101,15 +101,16 @@ export default function Article() {
             }
 
             // BLOCKQUOTE (Cadre mavo/orange) - MAMANTATRA NY '⚠️' NA '>'
-          if (line.includes('⚠️') || line.startsWith('> ')) {
-  return (
-    <div key={index} className="bg-yellow-50 border-l-4 border-yellow-500 p-3 my-4 rounded-r-lg inline-block">
-      <p className="text-yellow-800 font-medium text-sm">
-        {renderInline(line.replace('> ', ''), String(index))}
-      </p>
-    </div>
-  )
-}
+            if (line.includes('⚠️') || line.startsWith('> ')) {
+              return (
+                <div key={index} className="bg-yellow-50 border-l-4 border-yellow-500 p-3 my-4 rounded-r-lg inline-block">
+                  <p className="text-yellow-800 font-medium text-sm">
+                    {renderInline(line.replace('> ', ''), String(index))}
+                  </p>
+                </div>
+              )
+            }
+
             if (line.trim() === '---') return <hr key={index} className="my-8 border-gray-300" />
             if (line.startsWith('|')) {
               const cells = line.split('|').filter(c => c.trim() !== '')
@@ -120,10 +121,10 @@ export default function Article() {
                   {cells.map((cell, i) => {
                     const content = cell.trim().replace(/\*\*/g, '')
                     return isHeader ? (
-  <th key={i} className="p-3 bg-gray-50 text-left">{content}</th>
-) : (
-  <td key={i} className="p-3">{renderInline(content, `${index}-${i}`)}</td>
-)
+                      <th key={i} className="p-3 bg-gray-50 text-left">{content}</th>
+                    ) : (
+                      <td key={i} className="p-3">{renderInline(content, `${index}-${i}`)}</td>
+                    )
                   })}
                 </tr>
               )
