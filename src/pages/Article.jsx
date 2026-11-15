@@ -119,7 +119,11 @@ export default function Article() {
                 <tr key={index} className="border-b border-gray-200">
                   {cells.map((cell, i) => {
                     const content = cell.trim().replace(/\*\*/g, '')
-                    return isHeader ? <th key={i} className="p-3 bg-gray-50 text-left">{content}</th> : <td key={i} className="p-3">{content}</td>
+                    return isHeader ? (
+  <th key={i} className="p-3 bg-gray-50 text-left">{content}</th>
+) : (
+  <td key={i} className="p-3">{renderInline(content, `${index}-${i}`)}</td>
+)
                   })}
                 </tr>
               )
