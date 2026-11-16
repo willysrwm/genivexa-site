@@ -877,7 +877,7 @@ Pour être dans ce top 10, chaque outil devait respecter :
 
 ## 📊 Tableau comparatif rapide (Outils IA gratuits)
 
-| Outil | Catégorie | Version gratuite | Lien |
+| **Outil**|**Catégorie**| **Version gratuite** |**Lien** |
 |-------|-----------|------------------|------|
 | ChatGPT | Chatbot | Très généreuse | [Essayer](https://chat.openai.com/) |
 | Speechify | Audio | 10 min/jour | [Essayer](https://speechify.com/) |
