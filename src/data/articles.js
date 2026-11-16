@@ -3790,5 +3790,121 @@ Créer un ebook professionnel avec l'IA n'a jamais été aussi simple. En suivan
 **Mon conseil :** Commencez par un ebook court (20-30 pages) pour tester le processus. Une fois que vous maîtrisez, vous pourrez créer des ebooks plus longs.
 
 *Article mis à jour le 16 novembre 2026.*`
+  },
+    {
+    id: 18,
+    slug: 'creer-agent-ia-societe-guide',
+    title: 'Le Guide pas à pas pour créer un Agent IA spécifique à votre société',
+    excerpt: 'Découvrez comment créer un agent IA personnalisé pour votre entreprise. Guide complet pour automatiser votre support client, vos ventes et vos opérations.',
+    category: 'Automatisation',
+    date: '16 novembre 2026',
+    readTime: '12 min',
+    content: `## Pourquoi créer un Agent IA pour votre société ?
+
+En 2026, l'intelligence artificielle n'est plus réservée aux géants de la tech. Une PME, un cabinet de conseil ou une boutique en ligne peut désormais créer son propre **agent IA personnalisé** pour :
+- Répondre automatiquement aux questions des clients (support 24h/24)
+- Qualifier les prospects avant un rendez-vous
+- Automatiser la rédaction d'emails et de devis
+- Former les nouveaux employés
+
+**Bonne nouvelle** : Créer un agent IA est plus simple qu'il n'y paraît. Dans ce guide, je vous montre la méthode pas à pas, avec les meilleurs outils disponibles en 2026.
+
+---
+
+## Étape 1 : Définir le rôle de votre agent IA
+
+Avant de coder, il faut une stratégie claire.
+
+**Les questions à se poser :**
+- Quel problème mon agent doit-il résoudre ? (ex: répondre aux FAQs clients)
+- Qui va l'utiliser ? (vos clients ? vos employés ?)
+- Quelles sont les limites ? (il ne doit pas donner de conseils juridiques, etc.)
+
+**Exemple de rôle :** "Un agent IA qui répond aux questions fréquentes sur nos services et redirige vers un humain si la demande est complexe."
+
+---
+
+## Étape 2 : Choisir la bonne plateforme
+
+Plusieurs outils permettent de créer un agent IA sans coder. Voici les trois meilleurs :
+
+### Option A : Magai (Recommandé pour les PME)
+**Magai** est un assistant IA qui regroupe plusieurs modèles (ChatGPT, Claude, etc.) dans une seule interface. Il permet de créer des agents spécialisés avec un **prompt système personnalisé** et d'y ajouter vos propres documents (PDF, FAQ, etc.).
+
+- **Avantages :** Interface simple, multi-modèles, ajout de documents.
+- **Commission pour nous :** 20% récurrente.
+
+[👉 Essayer Magai gratuitement](https://magai.co/?via=wilson-martin)
+
+### Option B : Make (Pour les workflows avancés)
+**Make** permet de connecter votre agent IA à vos outils existants (CRM, emailing, Slack...). Vous pouvez par exemple créer un agent qui reçoit un email, l'analyse avec ChatGPT, et envoie une réponse automatique.
+
+- **Avantages :** Automatisation complète, 2000+ intégrations.
+- **Plan gratuit :** 1 000 opérations/mois.
+
+[👉 Essayer Make gratuitement](https://www.make.com/en/register?pc=genivexa)
+
+### Option C : Systeme.io (Pour les agents intégrés à votre site)
+**Systeme.io** propose un chatbot IA intégré à vos pages de vente et tunnels. Il peut répondre aux questions des visiteurs et capturer leurs emails.
+
+- **Avantages :** Tout-en-un (site, emailing, chatbot), plan gratuit à vie.
+
+[👉 Essayer Systeme.io gratuitement](https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694)
+
+---
+
+## Étape 3 : Rédiger le "Prompt Système"
+
+C'est l'étape la plus importante. Le **prompt système** est le cerveau de votre agent. Il définit sa personnalité, son rôle et ses limites.
+
+**Exemple de prompt système pour un agent de support client :**
+
+> "Tu es l'assistant virtuel de [NOM DE VOTRE SOCIÉTÉ]. Ton rôle est de répondre aux questions des clients sur nos services [LISTE DES SERVICES]. Tu dois toujours être poli, professionnel et concis. Si une question dépasse ton domaine de compétence, tu dois répondre : 'Je vais transmettre votre demande à un membre de notre équipe qui vous répondra sous 24h.' Tu ne dois jamais donner de conseils juridiques ou financiers."
+
+**Astuce :** Utilisez **ChatGPT** pour vous aider à rédiger ce prompt. Demandez-lui : "Aide-moi à écrire un prompt système pour un agent IA qui [RÔLE]."
+
+---
+
+## Étape 4 : Ajouter vos documents (Base de connaissances)
+
+Pour que votre agent soit vraiment utile, il doit avoir accès à vos informations. La plupart des plateformes (Magai, Systeme.io) permettent d'**uploader des documents** :
+- Votre FAQ
+- Vos fiches produits
+- Vos conditions générales
+- Vos guides internes
+
+L'agent utilisera ces documents pour répondre avec précision.
+
+---
+
+## Étape 5 : Tester et affiner
+
+Une fois votre agent créé, testez-le avec des questions réelles :
+- Posez-lui les questions les plus fréquentes de vos clients.
+- Vérifiez qu'il répond correctement et dans le bon ton.
+- Ajustez le prompt système si nécessaire.
+
+**Conseil :** Ne déployez pas votre agent immédiatement. Testez-le pendant une semaine en interne avant de le mettre à disposition de vos clients.
+
+---
+
+## Étape 6 : Déployer votre agent
+
+Une fois satisfait, intégrez votre agent :
+- **Sur votre site web** (via un widget de chat)
+- **Sur WhatsApp** (pour le support client)
+- **Sur votre page Facebook** (réponses automatiques)
+
+**Outil recommandé pour l'intégration : Make ou Systeme.io.**
+
+---
+
+## Conclusion : Lancez votre agent IA aujourd'hui
+
+Créer un agent IA pour votre société n'est plus un projet réservé aux développeurs. Avec les bons outils (Magai, Make, Systeme.io) et un prompt système bien rédigé, vous pouvez automatiser 70% de votre support client en quelques jours.
+
+**Mon conseil :** Commencez par un agent simple (FAQ uniquement) avant d'ajouter des fonctionnalités avancées.
+
+*Article mis à jour le 16 novembre 2026.*`
   }
 ];
