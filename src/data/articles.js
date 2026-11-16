@@ -3791,7 +3791,7 @@ Créer un ebook professionnel avec l'IA n'a jamais été aussi simple. En suivan
 
 *Article mis à jour le 16 novembre 2026.*`
   },
-    {
+     {
     id: 18,
     slug: 'creer-agent-ia-societe-guide',
     title: 'Le Guide pas à pas pour créer un Agent IA spécifique à votre société',
@@ -3904,6 +3904,13 @@ Une fois satisfait, intégrez votre agent :
 Créer un agent IA pour votre société n'est plus un projet réservé aux développeurs. Avec les bons outils (Magai, Make, Systeme.io) et un prompt système bien rédigé, vous pouvez automatiser 70% de votre support client en quelques jours.
 
 **Mon conseil :** Commencez par un agent simple (FAQ uniquement) avant d'ajouter des fonctionnalités avancées.
+
+---
+
+**Prêt à créer votre propre agent IA ?**
+
+[👉 Essayer Systeme.io gratuitement (Plan gratuit à vie)](https://systeme.io/fr?sa=sa0004318256e8f4bb16df8d117c373643e20b793694)
+[👉 Essayer Make gratuitement (1 000 opérations/mois)](https://www.make.com/en/register?pc=genivexa)
 
 *Article mis à jour le 16 novembre 2026.*`
   }
